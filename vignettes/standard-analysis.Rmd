@@ -1,0 +1,56 @@
+---
+title: "standard-analysis"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{standard-analysis}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup}
+library(juroR)
+library(tidyverse)
+library(broom.mixed)
+data("bullpen")
+```
+
+This example will walk through the analysis used in the paper. The first step is to run a logistic regression with `jur_caused` as the response variable and the chosen explanatory variable(s) In this example, `jur_race_w` is being used. This variable is based on `jur_race`, but has "White" as the reference level instead of the alphabetic value "Black".
+
+```{r}
+lr_caused <- stats::glm(jur_caused ~ jur_race_w, data = bullpen, family = "binomial")
+```
+
+Once the model has been run, a summary of the model can viewed. The authors also used `jtools::summ()` to print a pretty version of the summary.
+
+```{r}
+summary(lr_caused)
+
+# Pretty model summary
+jtools::summ(lr_caused, confint = TRUE)
+```
+
+A table with the odds ratios can be calculated using the built-in `calculate_odds` function.
+
+```{r}
+calculate_odds(lr_caused)
+```
+
+If desired, the model's equation can be viewed using the following code from the [equationomatic package](https://cran.r-project.org/web/packages/equatiomatic/vignettes/intro-equatiomatic.html)
+
+```{r}
+equatiomatic::extract_eq(lr_caused, use_coefs = TRUE)
+```
+
+Finally, the odds ratios and confidence intervals can be plotted using the built-in `plots_odds_ratios` function.
+
+```{r}
+plot_odds_ratios(lr_caused, "Reference race is White") + ggtitle("Caused by Juror Race")
+```
+
