@@ -20,3 +20,4 @@ Suggests:
     knitr,
     rmarkdown
 VignetteBuilder: knitr
+URL: https://mattfarrow1.github.io/juryr/
