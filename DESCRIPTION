@@ -1,8 +1,8 @@
 Type: Package
-Package: juroR
+Package: juryR
 Title: Jury Data for Felony Trials in Dallas County
 Version: 0.1.0
-Author: Matt Farrow
+Author: Megan Ball, Matt Farrow
 Maintainer: Matt Farrow <mattfarrow1@gmail.com>
 Description: This package contains data used in the paper: "Examining Bias in 
     Jury Selection for Criminal Trials in Dallas County"
