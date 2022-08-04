@@ -3,7 +3,7 @@ pkgdown: 2.0.6
 pkgdown_sha: ~
 articles:
   standard-analysis: standard-analysis.html
-last_built: 2022-08-04T17:54Z
+last_built: 2022-08-04T18:24Z
 urls:
   reference: https://dallasjurydata.com/reference
   article: https://dallasjurydata.com/articles
