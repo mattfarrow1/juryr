@@ -15,12 +15,11 @@ Imports:
     lifecycle,
     rlang,
     withr,
-    dplyr
+    tidyverse
 RoxygenNote: 7.2.1
 Suggests: 
     knitr,
     rmarkdown,
-    tidyverse
 VignetteBuilder: knitr
 URL: https://mattfarrow1.github.io/juryr/,
     https://dallasjurydata.com/
