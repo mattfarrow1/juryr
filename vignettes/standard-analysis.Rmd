@@ -15,7 +15,7 @@ knitr::opts_chunk$set(
 ```
 
 ```{r setup}
-library(juryr)
+library(juryR)
 library(tidyverse)
 library(broom.mixed)
 data("bullpen")

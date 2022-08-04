@@ -20,4 +20,5 @@ Suggests:
     knitr,
     rmarkdown
 VignetteBuilder: knitr
-URL: https://mattfarrow1.github.io/juryr/
+URL: https://mattfarrow1.github.io/juryr/,
+    https://dallasjurydata.com/
