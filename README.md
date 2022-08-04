@@ -4,4 +4,27 @@ This package is designed to accompany the paper *"Examining Bias in Jury Selecti
 
 ### Abstract
 
-One of the hallmarks of the American judicial system is the concept of trial by jury, and said trial to consist of an impartial jury of your peers. Several landmark legal cases in the history of the United States have challenged this notion of equal representation by jury—most notably by *Batson v. Kentucky 476 U.S. 79 (1986)*. Most of the previous research, focus, and legal precedence has centered around peremptory challenges and attempting to prove if bias was suspected in excluding certain jurors from serving. Few studies, however, focus on examining challenges for cause based on self-reported biases from the venire. This paper evaluates if there are any relationships of interest with respect to juror demographics and location regarding challenges for cause in felony criminal trials in Dallas County, TX.
+One of the hallmarks of the American judicial system is the concept of trial by jury, and said trial to consist of an impartial jury of your peers. Several landmark legal cases in the history of the United States have challenged this notion of equal representation by jury---most notably by *Batson v. Kentucky 476 U.S. 79 (1986)*. Most of the previous research, focus, and legal precedence has centered around peremptory challenges and attempting to prove if bias was suspected in excluding certain jurors from serving. Few studies, however, focus on examining challenges for cause based on self-reported biases from the venire. This paper evaluates if there are any relationships of interest with respect to juror demographics and location regarding challenges for cause in felony criminal trials in Dallas County, TX.
+
+## Installation
+
+::: juryr-devel
+```{r, eval = FALSE}
+# Install development version from GitHub
+devtools::install_github("mattfarrow1/pkgdown")
+```
+:::
+
+## Usage
+
+The original dataset can be loaded using:
+
+```{r, eval = FALSE}
+data(venire)
+```
+
+The dataset used in the paper which removes venirepersons who were disqualified or exempted, and includes zip code-specific fields as well as the juror race field with "White" as the reference race. This was done because "White" was the most frequent race cited by potential jurors.
+
+```{r, eval = FALSE}
+data(bullpen)
+```
