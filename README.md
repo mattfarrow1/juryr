@@ -1,4 +1,4 @@
-# juryR
+# juryR <img src="man/figures/logo.png" align="right" />
 
 This package is designed to accompany the paper *"Examining Bias in Jury Selection for Criminal Trials in Dallas County"* written by Megan Ball, Matt Farrow, [Dr. Bivin Sadler](https://datascience.smu.edu/about/leadership-and-faculty/bivin-sadler/), [Dr. Lynne Stokes](https://www.smu.edu/News/Experts/Lynne-Stokes), [Judge Brandon Birmingham](https://judgebirmingham.com), and Katherine Mitchell that was produced as the capstone project for Megan & Matt's [Master's of Science in Data Science](https://datascience.smu.edu) degree from [SMU](https://smu.edu).
 
