@@ -14,9 +14,4 @@ venire
 Information on venirepersons who took part in jury selection for the trials
 in the study.
 }
-\details{
-Note: this dataset was compiled manually from notes taken during jury
-selection. The data is provided here for reference only and may contain
-errors.
-}
 \keyword{datasets}

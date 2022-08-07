@@ -13,9 +13,4 @@ bullpen
 \description{
 Information on venirepersons who were not disqualified or exempted.
 }
-\details{
-Note: this dataset was compiled manually from notes taken during jury
-selection. The data is provided here for reference only and may contain
-errors.
-}
 \keyword{datasets}
