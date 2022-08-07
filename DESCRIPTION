@@ -26,7 +26,8 @@ Imports:
     tidyverse,
     withr
 RoxygenNote: 7.2.1
-Suggests: 
 VignetteBuilder: knitr
 URL: https://dallasjurydata.com/, https://github.com/mattfarrow1/juryr
 BugReports: https://github.com/mattfarrow1/juryr/issues
+Depends: 
+    R (>= 2.10)
