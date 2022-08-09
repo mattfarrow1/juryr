@@ -49,6 +49,7 @@
   <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true" id="dropdown-articles">Articles</a>
   <div class="dropdown-menu" aria-labelledby="dropdown-articles">
     <a class="dropdown-item" href="../articles/data.html">Data Dictionary</a>
+    <a class="dropdown-item" href="../articles/odds-ratios.html">Calculating Odds Ratios</a>
     <a class="dropdown-item" href="../articles/standard-analysis.html">Standard Analysis</a>
     <a class="dropdown-item" href="../articles/summary-data.html">Summary Data</a>
   </div>
@@ -98,274 +99,7 @@
 <span><span class="co">#&gt; <span style="color: #BB0000;">✖</span> <span style="color: #0000BB;">dplyr</span>::<span style="color: #00BB00;">filter()</span> masks <span style="color: #0000BB;">stats</span>::filter()</span></span>
 <span><span class="co">#&gt; <span style="color: #BB0000;">✖</span> <span style="color: #0000BB;">dplyr</span>::<span style="color: #00BB00;">lag()</span>    masks <span style="color: #0000BB;">stats</span>::lag()</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/bbolker/broom.mixed" class="external-link">broom.mixed</a></span><span class="op">)</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/utils/data.html" class="external-link">data</a></span><span class="op">(</span><span class="st">"bullpen"</span><span class="op">)</span></span>
-<span></span>
-<span><span class="co"># Calculate odds ratios</span></span>
-<span><span class="va">calculate_odds</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">model</span><span class="op">)</span> <span class="op">{</span></span>
-<span>  <span class="fu"><a href="https://rdrr.io/r/base/Log.html" class="external-link">exp</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/cbind.html" class="external-link">cbind</a></span><span class="op">(</span>OR <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/coef.html" class="external-link">coef</a></span><span class="op">(</span><span class="va">model</span><span class="op">)</span>, <span class="fu"><a href="https://rdrr.io/r/stats/confint.html" class="external-link">confint</a></span><span class="op">(</span><span class="va">model</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span>
-<span><span class="op">}</span></span>
-<span></span>
-<span><span class="co"># Get coefficient positions</span></span>
-<span><span class="va">get_coef_positions</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">model</span><span class="op">)</span> <span class="op">{</span></span>
-<span>  <span class="fu"><a href="https://tibble.tidyverse.org/reference/tibble.html" class="external-link">tibble</a></span><span class="op">(</span><span class="fu"><a href="https://generics.r-lib.org/reference/tidy.html" class="external-link">tidy</a></span><span class="op">(</span><span class="va">model</span><span class="op">$</span><span class="va">coefficients</span><span class="op">)</span><span class="op">)</span> <span class="op">|&gt;</span></span>
-<span>    <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html" class="external-link">mutate</a></span><span class="op">(</span>position <span class="op">=</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/ranking.html" class="external-link">row_number</a></span><span class="op">(</span><span class="op">)</span>, .before <span class="op">=</span> <span class="va">names</span><span class="op">)</span></span>
-<span><span class="op">}</span></span>
-<span></span>
-<span><span class="co"># Plot odds ratios (#1)</span></span>
-<span><span class="va">plot_odds_ratios</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">model</span>, <span class="va">caption</span><span class="op">)</span> <span class="op">{</span></span>
-<span></span>
-<span>  <span class="va">odds</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://tibble.tidyverse.org/reference/tibble.html" class="external-link">tibble</a></span><span class="op">(</span><span class="fu"><a href="https://tibble.tidyverse.org/reference/as_tibble.html" class="external-link">as_tibble_col</a></span><span class="op">(</span><span class="fu"><a href="https://tibble.tidyverse.org/reference/tibble.html" class="external-link">tibble</a></span><span class="op">(</span><span class="fu"><a href="https://generics.r-lib.org/reference/tidy.html" class="external-link">tidy</a></span><span class="op">(</span><span class="va">model</span><span class="op">$</span><span class="va">coefficients</span><span class="op">)</span><span class="op">)</span><span class="op">$</span><span class="va">names</span><span class="op">)</span>,</span>
-<span>                 <span class="fu"><a href="https://tibble.tidyverse.org/reference/as_tibble.html" class="external-link">as_tibble</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/Log.html" class="external-link">exp</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/cbind.html" class="external-link">cbind</a></span><span class="op">(</span>OR <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/coef.html" class="external-link">coef</a></span><span class="op">(</span><span class="va">model</span><span class="op">)</span>, <span class="fu"><a href="https://rdrr.io/r/stats/confint.html" class="external-link">confint</a></span><span class="op">(</span><span class="va">model</span><span class="op">)</span><span class="op">)</span><span class="op">)</span><span class="op">)</span>,</span>
-<span>                 std_err <span class="op">=</span> <span class="fu"><a href="https://tibble.tidyverse.org/reference/tibble.html" class="external-link">tibble</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/summary.html" class="external-link">summary</a></span><span class="op">(</span><span class="va">model</span><span class="op">)</span><span class="op">$</span><span class="va">coefficients</span><span class="op">[</span>, <span class="fl">2</span><span class="op">]</span><span class="op">)</span><span class="op">)</span></span>
-<span></span>
-<span>  <span class="va">odds</span><span class="op">[</span><span class="op">-</span><span class="fl">1</span>, <span class="op">]</span> <span class="op">|&gt;</span></span>
-<span>    <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">filter</a></span><span class="op">(</span><span class="va">std_err</span> <span class="op">&lt;</span> <span class="fl">2</span><span class="op">)</span> <span class="op">|&gt;</span></span>
-<span>    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span>y <span class="op">=</span> <span class="va">value</span>, x <span class="op">=</span> <span class="va">OR</span>, label <span class="op">=</span> <span class="va">value</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
-<span>    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_errorbarh.html" class="external-link">geom_errorbarh</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span></span>
-<span>      xmin <span class="op">=</span> <span class="va">`2.5 %`</span>,</span>
-<span>      xmax <span class="op">=</span> <span class="va">`97.5 %`</span></span>
-<span>    <span class="op">)</span>,</span>
-<span>    height <span class="op">=</span> <span class="fl">0.2</span></span>
-<span>    <span class="op">)</span> <span class="op">+</span></span>
-<span>    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html" class="external-link">geom_point</a></span><span class="op">(</span>size <span class="op">=</span> <span class="fl">4</span>, shape <span class="op">=</span> <span class="fl">18</span>, color <span class="op">=</span> <span class="st">"black"</span><span class="op">)</span> <span class="op">+</span></span>
-<span>    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_abline.html" class="external-link">geom_vline</a></span><span class="op">(</span>xintercept <span class="op">=</span> <span class="fl">1</span>, linetype <span class="op">=</span> <span class="st">"longdash"</span><span class="op">)</span> <span class="op">+</span></span>
-<span>    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_discrete.html" class="external-link">scale_y_discrete</a></span><span class="op">(</span>labels <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span></span>
-<span>      <span class="st">"jur_race_wAsian"</span> <span class="op">=</span> <span class="st">"Asian"</span>,</span>
-<span>      <span class="st">"jur_race_wBlack"</span> <span class="op">=</span> <span class="st">"Black"</span>,</span>
-<span>      <span class="st">"jur_race_wHispanic"</span> <span class="op">=</span> <span class="st">"Hispanic"</span>,</span>
-<span>      <span class="st">"jur_race_wOther"</span> <span class="op">=</span> <span class="st">"Other"</span>,</span>
-<span>      <span class="st">"i_30Split"</span> <span class="op">=</span> <span class="st">"I-30 (Split)"</span>,</span>
-<span>      <span class="st">"i_30North"</span> <span class="op">=</span> <span class="st">"I-30 North"</span>,</span>
-<span>      <span class="st">"i_30Split:jur_race_wOther"</span> <span class="op">=</span> <span class="st">"I-30 (split) * Race (Other)"</span>,</span>
-<span>      <span class="st">"i_30Split:jur_race_wHispanic"</span> <span class="op">=</span> <span class="st">"I-30 (split) * Race (Hispanic)"</span>,</span>
-<span>      <span class="st">"i_30Split:jur_race_wBlack"</span> <span class="op">=</span> <span class="st">"I-30 (split) * Race (Black)"</span>,</span>
-<span>      <span class="st">"i_30Split:jur_race_wAsian"</span> <span class="op">=</span> <span class="st">"I-30 (split) * Race (Asian)"</span>,</span>
-<span>      <span class="st">"i_30North:jur_race_wOther"</span> <span class="op">=</span> <span class="st">"I-30 (North) * Race (Other)"</span>,</span>
-<span>      <span class="st">"i_30North:jur_race_wHispanic"</span> <span class="op">=</span> <span class="st">"I-30 (North) * Race (Hispanic)"</span>,</span>
-<span>      <span class="st">"i_30North:jur_race_wBlack"</span> <span class="op">=</span> <span class="st">"I-30 (North) * Race (Black)"</span>,</span>
-<span>      <span class="st">"i_30North:jur_race_wAsian"</span> <span class="op">=</span> <span class="st">"I-30 (North) * Race (Asian)"</span>,</span>
-<span>      <span class="st">"age_group55 +"</span> <span class="op">=</span> <span class="st">"Age Group 55 and Up"</span>,</span>
-<span>      <span class="st">"age_group45 - 54"</span> <span class="op">=</span> <span class="st">"Age Group 45 - 54"</span>,</span>
-<span>      <span class="st">"age_group31 - 44"</span> <span class="op">=</span> <span class="st">"Age Group 31 - 44"</span>,</span>
-<span>      <span class="st">"i_30Split:age_group55 +"</span> <span class="op">=</span> <span class="st">"I-30 (split) * Age Group 55 and Up"</span>,</span>
-<span>      <span class="st">"i_30Split:age_group45 - 54"</span> <span class="op">=</span> <span class="st">"I-30 (split) * Age Group 45 - 54"</span>,</span>
-<span>      <span class="st">"i_30Split:age_group31 - 44"</span> <span class="op">=</span> <span class="st">"I-30 (split) * Age Group 31 - 44"</span>,</span>
-<span>      <span class="st">"i_30North:age_group55 +"</span> <span class="op">=</span> <span class="st">"I-30 (North) * Age Group 55 and Up"</span>,</span>
-<span>      <span class="st">"i_30North:age_group45 - 54"</span> <span class="op">=</span> <span class="st">"I-30 (North) * Age Group 45 - 54"</span>,</span>
-<span>      <span class="st">"i_30North:age_group31 - 44"</span> <span class="op">=</span> <span class="st">"I-30 (North) * Age Group 31 - 44"</span>,</span>
-<span>      <span class="st">"jur_gendOther"</span> <span class="op">=</span> <span class="st">"Other"</span>,</span>
-<span>      <span class="st">"jur_gendMale"</span> <span class="op">=</span> <span class="st">"Male"</span>,</span>
-<span>      <span class="st">"i_30Split:jur_gendOther"</span> <span class="op">=</span> <span class="st">"I-30 (split) * Other"</span>,</span>
-<span>      <span class="st">"i_30Split:jur_gendMale"</span> <span class="op">=</span> <span class="st">"I-30 (split) * Male"</span>,</span>
-<span>      <span class="st">"i_30North:jur_gendOther"</span> <span class="op">=</span> <span class="st">"I-30 (North) * Other"</span>,</span>
-<span>      <span class="st">"i_30North:jur_gendMale"</span> <span class="op">=</span> <span class="st">"I-30 (North) * Male"</span></span>
-<span>    <span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
-<span>    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html" class="external-link">labs</a></span><span class="op">(</span></span>
-<span>      caption <span class="op">=</span> <span class="va">caption</span>,</span>
-<span>      x <span class="op">=</span> <span class="st">"Odds Ratio"</span>,</span>
-<span>      y <span class="op">=</span> <span class="st">""</span></span>
-<span>    <span class="op">)</span> <span class="op">+</span></span>
-<span>    <span class="fu">ggthemes</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/ggthemes/man/theme_foundation.html" class="external-link">theme_foundation</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
-<span>    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/theme.html" class="external-link">theme</a></span><span class="op">(</span></span>
-<span>      plot.title <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html" class="external-link">element_text</a></span><span class="op">(</span></span>
-<span>        face <span class="op">=</span> <span class="st">"bold"</span>,</span>
-<span>        family <span class="op">=</span> <span class="st">"Georgia"</span>,</span>
-<span>        size <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html" class="external-link">rel</a></span><span class="op">(</span><span class="fl">1.4</span><span class="op">)</span>, hjust <span class="op">=</span> <span class="fl">0</span>, margin <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html" class="external-link">margin</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">0</span>, <span class="fl">20</span>, <span class="fl">0</span><span class="op">)</span></span>
-<span>      <span class="op">)</span>,</span>
-<span>      text <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html" class="external-link">element_text</a></span><span class="op">(</span><span class="op">)</span>,</span>
-<span>      panel.background <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html" class="external-link">element_rect</a></span><span class="op">(</span>colour <span class="op">=</span> <span class="cn">NA</span><span class="op">)</span>,</span>
-<span>      plot.background <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html" class="external-link">element_rect</a></span><span class="op">(</span>colour <span class="op">=</span> <span class="cn">NA</span><span class="op">)</span>,</span>
-<span>      panel.border <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html" class="external-link">element_rect</a></span><span class="op">(</span>colour <span class="op">=</span> <span class="cn">NA</span><span class="op">)</span>,</span>
-<span>      axis.title <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html" class="external-link">element_text</a></span><span class="op">(</span></span>
-<span>        face <span class="op">=</span> <span class="st">"bold"</span>,</span>
-<span>        family <span class="op">=</span> <span class="st">"Georgia"</span>,</span>
-<span>        size <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html" class="external-link">rel</a></span><span class="op">(</span><span class="fl">1</span><span class="op">)</span></span>
-<span>      <span class="op">)</span>,</span>
-<span>      axis.title.y <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html" class="external-link">element_text</a></span><span class="op">(</span>angle <span class="op">=</span> <span class="fl">90</span>, vjust <span class="op">=</span> <span class="fl">2</span><span class="op">)</span>,</span>
-<span>      axis.title.x <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html" class="external-link">element_text</a></span><span class="op">(</span>vjust <span class="op">=</span> <span class="op">-</span><span class="fl">0.2</span>, hjust <span class="op">=</span> <span class="fl">0.5</span><span class="op">)</span>,</span>
-<span>      axis.text <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html" class="external-link">element_text</a></span><span class="op">(</span>family <span class="op">=</span> <span class="st">"Georgia"</span><span class="op">)</span>,</span>
-<span>      axis.line.x <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html" class="external-link">element_line</a></span><span class="op">(</span>colour <span class="op">=</span> <span class="st">"black"</span><span class="op">)</span>,</span>
-<span>      axis.line.y <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html" class="external-link">element_line</a></span><span class="op">(</span>colour <span class="op">=</span> <span class="st">"black"</span><span class="op">)</span>,</span>
-<span>      axis.ticks <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html" class="external-link">element_line</a></span><span class="op">(</span><span class="op">)</span>,</span>
-<span>      panel.grid.major <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html" class="external-link">element_line</a></span><span class="op">(</span></span>
-<span>        colour <span class="op">=</span> <span class="st">"#d8d8d8"</span>,</span>
-<span>        size <span class="op">=</span> <span class="fl">0.5</span>,</span>
-<span>        linetype <span class="op">=</span> <span class="st">"dotted"</span></span>
-<span>      <span class="op">)</span>,</span>
-<span>      panel.grid.minor <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html" class="external-link">element_blank</a></span><span class="op">(</span><span class="op">)</span>,</span>
-<span>      plot.caption <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html" class="external-link">element_text</a></span><span class="op">(</span></span>
-<span>        face <span class="op">=</span> <span class="st">"italic"</span>,</span>
-<span>        family <span class="op">=</span> <span class="st">"Georgia"</span></span>
-<span>      <span class="op">)</span>,</span>
-<span>      legend.key <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html" class="external-link">element_rect</a></span><span class="op">(</span>colour <span class="op">=</span> <span class="cn">NA</span><span class="op">)</span>,</span>
-<span>      legend.position <span class="op">=</span> <span class="st">"bottom"</span>,</span>
-<span>      legend.direction <span class="op">=</span> <span class="st">"horizontal"</span>,</span>
-<span>      legend.box <span class="op">=</span> <span class="st">"vertical"</span>,</span>
-<span>      legend.key.size <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/grid/unit.html" class="external-link">unit</a></span><span class="op">(</span><span class="fl">0.5</span>, <span class="st">"cm"</span><span class="op">)</span>,</span>
-<span>      <span class="co"># legend.margin = unit(0, "cm"),</span></span>
-<span>      legend.title <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html" class="external-link">element_text</a></span><span class="op">(</span>face <span class="op">=</span> <span class="st">"italic"</span><span class="op">)</span>,</span>
-<span>      plot.margin <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/grid/unit.html" class="external-link">unit</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">10</span>, <span class="fl">5</span>, <span class="fl">5</span>, <span class="fl">5</span><span class="op">)</span>, <span class="st">"mm"</span><span class="op">)</span>,</span>
-<span>      strip.background <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html" class="external-link">element_rect</a></span><span class="op">(</span>colour <span class="op">=</span> <span class="st">"#f0f0f0"</span>, fill <span class="op">=</span> <span class="st">"#f0f0f0"</span><span class="op">)</span>,</span>
-<span>      strip.text <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html" class="external-link">element_text</a></span><span class="op">(</span>face <span class="op">=</span> <span class="st">"bold"</span><span class="op">)</span></span>
-<span>    <span class="op">)</span></span>
-<span><span class="op">}</span></span>
-<span></span>
-<span><span class="co"># Plot odds ratios (#2)</span></span>
-<span><span class="va">plot_odds_ratios2</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">model</span>, <span class="va">caption</span><span class="op">)</span> <span class="op">{</span></span>
-<span></span>
-<span>  <span class="va">odds</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://tibble.tidyverse.org/reference/tibble.html" class="external-link">tibble</a></span><span class="op">(</span><span class="fu"><a href="https://tibble.tidyverse.org/reference/as_tibble.html" class="external-link">as_tibble_col</a></span><span class="op">(</span><span class="fu"><a href="https://tibble.tidyverse.org/reference/tibble.html" class="external-link">tibble</a></span><span class="op">(</span><span class="fu"><a href="https://generics.r-lib.org/reference/tidy.html" class="external-link">tidy</a></span><span class="op">(</span><span class="va">model</span><span class="op">$</span><span class="va">coefficients</span><span class="op">)</span><span class="op">)</span><span class="op">$</span><span class="va">names</span><span class="op">)</span>,</span>
-<span>                 <span class="fu"><a href="https://tibble.tidyverse.org/reference/as_tibble.html" class="external-link">as_tibble</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/Log.html" class="external-link">exp</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/cbind.html" class="external-link">cbind</a></span><span class="op">(</span>OR <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/coef.html" class="external-link">coef</a></span><span class="op">(</span><span class="va">model</span><span class="op">)</span>, <span class="fu"><a href="https://rdrr.io/r/stats/confint.html" class="external-link">confint</a></span><span class="op">(</span><span class="va">model</span><span class="op">)</span><span class="op">)</span><span class="op">)</span><span class="op">)</span>,</span>
-<span>                 std_err <span class="op">=</span> <span class="fu"><a href="https://tibble.tidyverse.org/reference/tibble.html" class="external-link">tibble</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/summary.html" class="external-link">summary</a></span><span class="op">(</span><span class="va">model</span><span class="op">)</span><span class="op">$</span><span class="va">coefficients</span><span class="op">[</span>, <span class="fl">2</span><span class="op">]</span><span class="op">)</span><span class="op">)</span></span>
-<span></span>
-<span>  <span class="va">odds</span><span class="op">[</span><span class="op">-</span><span class="fl">1</span>, <span class="op">]</span> <span class="op">|&gt;</span></span>
-<span>    <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">filter</a></span><span class="op">(</span><span class="va">std_err</span> <span class="op">&lt;</span> <span class="fl">2</span><span class="op">)</span> <span class="op">|&gt;</span></span>
-<span>    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span>y <span class="op">=</span> <span class="va">value</span>, x <span class="op">=</span> <span class="va">OR</span>, label <span class="op">=</span> <span class="va">value</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
-<span>    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/lims.html" class="external-link">xlim</a></span><span class="op">(</span><span class="fl">0.5</span>, <span class="fl">11</span><span class="op">)</span> <span class="op">+</span></span>
-<span>    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_errorbarh.html" class="external-link">geom_errorbarh</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span></span>
-<span>      xmin <span class="op">=</span> <span class="va">`2.5 %`</span>,</span>
-<span>      xmax <span class="op">=</span> <span class="va">`97.5 %`</span></span>
-<span>    <span class="op">)</span>,</span>
-<span>    height <span class="op">=</span> <span class="fl">0.2</span></span>
-<span>    <span class="op">)</span> <span class="op">+</span></span>
-<span>    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html" class="external-link">geom_point</a></span><span class="op">(</span>size <span class="op">=</span> <span class="fl">4</span>, shape <span class="op">=</span> <span class="fl">18</span>, color <span class="op">=</span> <span class="st">"black"</span><span class="op">)</span> <span class="op">+</span></span>
-<span>    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_abline.html" class="external-link">geom_vline</a></span><span class="op">(</span>xintercept <span class="op">=</span> <span class="fl">1</span>, linetype <span class="op">=</span> <span class="st">"longdash"</span><span class="op">)</span> <span class="op">+</span></span>
-<span>    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_discrete.html" class="external-link">scale_y_discrete</a></span><span class="op">(</span>labels <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span></span>
-<span>      <span class="st">"jur_race_wAsian"</span> <span class="op">=</span> <span class="st">"Asian"</span>,</span>
-<span>      <span class="st">"jur_race_wBlack"</span> <span class="op">=</span> <span class="st">"Black"</span>,</span>
-<span>      <span class="st">"jur_race_wHispanic"</span> <span class="op">=</span> <span class="st">"Hispanic"</span>,</span>
-<span>      <span class="st">"jur_race_wOther"</span> <span class="op">=</span> <span class="st">"Other"</span>,</span>
-<span>      <span class="st">"jur_race_oWhite"</span> <span class="op">=</span> <span class="st">"Other"</span>,</span>
-<span>      <span class="st">"jur_raceWhite"</span> <span class="op">=</span> <span class="st">"Black"</span>,</span>
-<span>      <span class="st">"jur_race_aWhite"</span> <span class="op">=</span> <span class="st">"Asian"</span>,</span>
-<span>      <span class="st">"jur_race_hWhite"</span> <span class="op">=</span> <span class="st">"Hispanic"</span>,</span>
-<span>      <span class="st">"jur_race_oHispanic"</span> <span class="op">=</span> <span class="st">"Hispanic"</span>,</span>
-<span>      <span class="st">"jur_race_oBlack"</span> <span class="op">=</span> <span class="st">"Black"</span>,</span>
-<span>      <span class="st">"jur_race_oAsian"</span> <span class="op">=</span> <span class="st">"Asian"</span>,</span>
-<span>      <span class="st">"age_group55 +"</span> <span class="op">=</span> <span class="st">"Age Group 55 and Up"</span>,</span>
-<span>      <span class="st">"age_group45 - 54"</span> <span class="op">=</span> <span class="st">"Age Group 45 - 54"</span>,</span>
-<span>      <span class="st">"age_group31 - 44"</span> <span class="op">=</span> <span class="st">"Age Group 31 - 44"</span></span>
-<span>    <span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
-<span>    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html" class="external-link">labs</a></span><span class="op">(</span></span>
-<span>      caption <span class="op">=</span> <span class="va">caption</span>,</span>
-<span>      x <span class="op">=</span> <span class="st">"Odds Ratio"</span>,</span>
-<span>      y <span class="op">=</span> <span class="st">""</span></span>
-<span>    <span class="op">)</span> <span class="op">+</span></span>
-<span>    <span class="fu">ggthemes</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/ggthemes/man/theme_foundation.html" class="external-link">theme_foundation</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
-<span>    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/theme.html" class="external-link">theme</a></span><span class="op">(</span></span>
-<span>      plot.title <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html" class="external-link">element_text</a></span><span class="op">(</span></span>
-<span>        face <span class="op">=</span> <span class="st">"bold"</span>,</span>
-<span>        family <span class="op">=</span> <span class="st">"Georgia"</span>,</span>
-<span>        size <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html" class="external-link">rel</a></span><span class="op">(</span><span class="fl">1.4</span><span class="op">)</span>, hjust <span class="op">=</span> <span class="fl">0</span>, margin <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html" class="external-link">margin</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">0</span>, <span class="fl">20</span>, <span class="fl">0</span><span class="op">)</span></span>
-<span>      <span class="op">)</span>,</span>
-<span>      text <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html" class="external-link">element_text</a></span><span class="op">(</span><span class="op">)</span>,</span>
-<span>      panel.background <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html" class="external-link">element_rect</a></span><span class="op">(</span>colour <span class="op">=</span> <span class="cn">NA</span><span class="op">)</span>,</span>
-<span>      plot.background <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html" class="external-link">element_rect</a></span><span class="op">(</span>colour <span class="op">=</span> <span class="cn">NA</span><span class="op">)</span>,</span>
-<span>      panel.border <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html" class="external-link">element_rect</a></span><span class="op">(</span>colour <span class="op">=</span> <span class="cn">NA</span><span class="op">)</span>,</span>
-<span>      axis.title <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html" class="external-link">element_text</a></span><span class="op">(</span></span>
-<span>        face <span class="op">=</span> <span class="st">"bold"</span>,</span>
-<span>        family <span class="op">=</span> <span class="st">"Georgia"</span>,</span>
-<span>        size <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html" class="external-link">rel</a></span><span class="op">(</span><span class="fl">1</span><span class="op">)</span></span>
-<span>      <span class="op">)</span>,</span>
-<span>      axis.title.y <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html" class="external-link">element_text</a></span><span class="op">(</span>angle <span class="op">=</span> <span class="fl">90</span>, vjust <span class="op">=</span> <span class="fl">2</span><span class="op">)</span>,</span>
-<span>      axis.title.x <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html" class="external-link">element_text</a></span><span class="op">(</span>vjust <span class="op">=</span> <span class="op">-</span><span class="fl">0.2</span>, hjust <span class="op">=</span> <span class="fl">0.5</span><span class="op">)</span>,</span>
-<span>      axis.text <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html" class="external-link">element_text</a></span><span class="op">(</span>family <span class="op">=</span> <span class="st">"Georgia"</span><span class="op">)</span>,</span>
-<span>      axis.line.x <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html" class="external-link">element_line</a></span><span class="op">(</span>colour <span class="op">=</span> <span class="st">"black"</span><span class="op">)</span>,</span>
-<span>      axis.line.y <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html" class="external-link">element_line</a></span><span class="op">(</span>colour <span class="op">=</span> <span class="st">"black"</span><span class="op">)</span>,</span>
-<span>      axis.ticks <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html" class="external-link">element_line</a></span><span class="op">(</span><span class="op">)</span>,</span>
-<span>      panel.grid.major <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html" class="external-link">element_blank</a></span><span class="op">(</span><span class="op">)</span>,</span>
-<span>      panel.grid.minor <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html" class="external-link">element_blank</a></span><span class="op">(</span><span class="op">)</span>,</span>
-<span>      plot.caption <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html" class="external-link">element_text</a></span><span class="op">(</span></span>
-<span>        face <span class="op">=</span> <span class="st">"italic"</span>,</span>
-<span>        family <span class="op">=</span> <span class="st">"Georgia"</span></span>
-<span>      <span class="op">)</span>,</span>
-<span>      legend.key <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html" class="external-link">element_rect</a></span><span class="op">(</span>colour <span class="op">=</span> <span class="cn">NA</span><span class="op">)</span>,</span>
-<span>      legend.position <span class="op">=</span> <span class="st">"bottom"</span>,</span>
-<span>      legend.direction <span class="op">=</span> <span class="st">"horizontal"</span>,</span>
-<span>      legend.box <span class="op">=</span> <span class="st">"vertical"</span>,</span>
-<span>      legend.key.size <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/grid/unit.html" class="external-link">unit</a></span><span class="op">(</span><span class="fl">0.5</span>, <span class="st">"cm"</span><span class="op">)</span>,</span>
-<span>      <span class="co"># legend.margin = unit(0, "cm"),</span></span>
-<span>      legend.title <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html" class="external-link">element_text</a></span><span class="op">(</span>face <span class="op">=</span> <span class="st">"italic"</span><span class="op">)</span>,</span>
-<span>      plot.margin <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/grid/unit.html" class="external-link">unit</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">10</span>, <span class="fl">5</span>, <span class="fl">5</span>, <span class="fl">5</span><span class="op">)</span>, <span class="st">"mm"</span><span class="op">)</span>,</span>
-<span>      strip.background <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html" class="external-link">element_rect</a></span><span class="op">(</span>colour <span class="op">=</span> <span class="st">"#f0f0f0"</span>, fill <span class="op">=</span> <span class="st">"#f0f0f0"</span><span class="op">)</span>,</span>
-<span>      strip.text <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html" class="external-link">element_text</a></span><span class="op">(</span>face <span class="op">=</span> <span class="st">"bold"</span><span class="op">)</span></span>
-<span>    <span class="op">)</span></span>
-<span><span class="op">}</span></span>
-<span></span>
-<span><span class="co"># Plot odds ratios #3</span></span>
-<span><span class="va">plot_odds_ratios3</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">model</span>, <span class="va">caption</span><span class="op">)</span> <span class="op">{</span></span>
-<span></span>
-<span>  <span class="va">odds</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://tibble.tidyverse.org/reference/tibble.html" class="external-link">tibble</a></span><span class="op">(</span><span class="fu"><a href="https://tibble.tidyverse.org/reference/as_tibble.html" class="external-link">as_tibble_col</a></span><span class="op">(</span><span class="fu"><a href="https://tibble.tidyverse.org/reference/tibble.html" class="external-link">tibble</a></span><span class="op">(</span><span class="fu"><a href="https://generics.r-lib.org/reference/tidy.html" class="external-link">tidy</a></span><span class="op">(</span><span class="va">model</span><span class="op">$</span><span class="va">coefficients</span><span class="op">)</span><span class="op">)</span><span class="op">$</span><span class="va">names</span><span class="op">)</span>,</span>
-<span>                 <span class="fu"><a href="https://tibble.tidyverse.org/reference/as_tibble.html" class="external-link">as_tibble</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/Log.html" class="external-link">exp</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/cbind.html" class="external-link">cbind</a></span><span class="op">(</span>OR <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/coef.html" class="external-link">coef</a></span><span class="op">(</span><span class="va">model</span><span class="op">)</span>, <span class="fu"><a href="https://rdrr.io/r/stats/confint.html" class="external-link">confint</a></span><span class="op">(</span><span class="va">model</span><span class="op">)</span><span class="op">)</span><span class="op">)</span><span class="op">)</span>,</span>
-<span>                 std_err <span class="op">=</span> <span class="fu"><a href="https://tibble.tidyverse.org/reference/tibble.html" class="external-link">tibble</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/summary.html" class="external-link">summary</a></span><span class="op">(</span><span class="va">model</span><span class="op">)</span><span class="op">$</span><span class="va">coefficients</span><span class="op">[</span>, <span class="fl">2</span><span class="op">]</span><span class="op">)</span><span class="op">)</span></span>
-<span></span>
-<span>  <span class="va">odds</span><span class="op">[</span><span class="op">-</span><span class="fl">1</span>, <span class="op">]</span> <span class="op">|&gt;</span></span>
-<span>    <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">filter</a></span><span class="op">(</span><span class="va">std_err</span> <span class="op">&lt;</span> <span class="fl">2</span><span class="op">)</span> <span class="op">|&gt;</span></span>
-<span>    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span>y <span class="op">=</span> <span class="va">value</span>, x <span class="op">=</span> <span class="va">OR</span>, label <span class="op">=</span> <span class="va">value</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
-<span>    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/lims.html" class="external-link">xlim</a></span><span class="op">(</span><span class="fl">0.5</span>, <span class="fl">2</span><span class="op">)</span> <span class="op">+</span></span>
-<span>    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_errorbarh.html" class="external-link">geom_errorbarh</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span></span>
-<span>      xmin <span class="op">=</span> <span class="va">`2.5 %`</span>,</span>
-<span>      xmax <span class="op">=</span> <span class="va">`97.5 %`</span></span>
-<span>    <span class="op">)</span>,</span>
-<span>    height <span class="op">=</span> <span class="fl">0.2</span></span>
-<span>    <span class="op">)</span> <span class="op">+</span></span>
-<span>    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html" class="external-link">geom_point</a></span><span class="op">(</span>size <span class="op">=</span> <span class="fl">4</span>, shape <span class="op">=</span> <span class="fl">18</span>, color <span class="op">=</span> <span class="st">"black"</span><span class="op">)</span> <span class="op">+</span></span>
-<span>    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_abline.html" class="external-link">geom_vline</a></span><span class="op">(</span>xintercept <span class="op">=</span> <span class="fl">1</span>, linetype <span class="op">=</span> <span class="st">"longdash"</span><span class="op">)</span> <span class="op">+</span></span>
-<span>    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_discrete.html" class="external-link">scale_y_discrete</a></span><span class="op">(</span>labels <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span></span>
-<span>      <span class="st">"age_group118 - 30"</span> <span class="op">=</span> <span class="st">"Age Group 45 - 54"</span>,</span>
-<span>      <span class="st">"age_group155 +"</span> <span class="op">=</span> <span class="st">"Age Group 55 And Up"</span>,</span>
-<span>      <span class="st">"age_group131 - 44"</span> <span class="op">=</span> <span class="st">"Age Group 31 - 44"</span>,</span>
-<span>      <span class="st">"age_group218 - 30"</span> <span class="op">=</span> <span class="st">"Age Group 55 And Up"</span>,</span>
-<span>      <span class="st">"age_group245 - 54"</span> <span class="op">=</span> <span class="st">"Age Group 45 - 54"</span>,</span>
-<span>      <span class="st">"age_group231 - 44"</span> <span class="op">=</span> <span class="st">"Age Group 31 - 44"</span>,</span>
-<span>      <span class="st">"age_group318 - 30"</span> <span class="op">=</span> <span class="st">"Age Group 31 - 44"</span>,</span>
-<span>      <span class="st">"age_group355 +"</span> <span class="op">=</span> <span class="st">"Age Group 55 And Up"</span>,</span>
-<span>      <span class="st">"age_group345 - 54"</span> <span class="op">=</span> <span class="st">"Age Group 45 - 54"</span></span>
-<span>    <span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
-<span>    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html" class="external-link">labs</a></span><span class="op">(</span></span>
-<span>      caption <span class="op">=</span> <span class="va">caption</span>,</span>
-<span>      x <span class="op">=</span> <span class="st">"Odds Ratio"</span>,</span>
-<span>      y <span class="op">=</span> <span class="st">""</span></span>
-<span>    <span class="op">)</span> <span class="op">+</span></span>
-<span>    <span class="fu">theme_foundation</span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
-<span>    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/theme.html" class="external-link">theme</a></span><span class="op">(</span></span>
-<span>      plot.title <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html" class="external-link">element_text</a></span><span class="op">(</span></span>
-<span>        face <span class="op">=</span> <span class="st">"bold"</span>,</span>
-<span>        family <span class="op">=</span> <span class="st">"Georgia"</span>,</span>
-<span>        size <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html" class="external-link">rel</a></span><span class="op">(</span><span class="fl">1.4</span><span class="op">)</span>, hjust <span class="op">=</span> <span class="fl">0</span>, margin <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html" class="external-link">margin</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">0</span>, <span class="fl">20</span>, <span class="fl">0</span><span class="op">)</span></span>
-<span>      <span class="op">)</span>,</span>
-<span>      text <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html" class="external-link">element_text</a></span><span class="op">(</span><span class="op">)</span>,</span>
-<span>      panel.background <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html" class="external-link">element_rect</a></span><span class="op">(</span>colour <span class="op">=</span> <span class="cn">NA</span><span class="op">)</span>,</span>
-<span>      plot.background <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html" class="external-link">element_rect</a></span><span class="op">(</span>colour <span class="op">=</span> <span class="cn">NA</span><span class="op">)</span>,</span>
-<span>      panel.border <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html" class="external-link">element_rect</a></span><span class="op">(</span>colour <span class="op">=</span> <span class="cn">NA</span><span class="op">)</span>,</span>
-<span>      axis.title <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html" class="external-link">element_text</a></span><span class="op">(</span></span>
-<span>        face <span class="op">=</span> <span class="st">"bold"</span>,</span>
-<span>        family <span class="op">=</span> <span class="st">"Georgia"</span>,</span>
-<span>        size <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html" class="external-link">rel</a></span><span class="op">(</span><span class="fl">1</span><span class="op">)</span></span>
-<span>      <span class="op">)</span>,</span>
-<span>      axis.title.y <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html" class="external-link">element_text</a></span><span class="op">(</span>angle <span class="op">=</span> <span class="fl">90</span>, vjust <span class="op">=</span> <span class="fl">2</span><span class="op">)</span>,</span>
-<span>      axis.title.x <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html" class="external-link">element_text</a></span><span class="op">(</span>vjust <span class="op">=</span> <span class="op">-</span><span class="fl">0.2</span>, hjust <span class="op">=</span> <span class="fl">0.5</span><span class="op">)</span>,</span>
-<span>      axis.text <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html" class="external-link">element_text</a></span><span class="op">(</span>family <span class="op">=</span> <span class="st">"Georgia"</span><span class="op">)</span>,</span>
-<span>      axis.line.x <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html" class="external-link">element_line</a></span><span class="op">(</span>colour <span class="op">=</span> <span class="st">"black"</span><span class="op">)</span>,</span>
-<span>      axis.line.y <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html" class="external-link">element_line</a></span><span class="op">(</span>colour <span class="op">=</span> <span class="st">"black"</span><span class="op">)</span>,</span>
-<span>      axis.ticks <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html" class="external-link">element_line</a></span><span class="op">(</span><span class="op">)</span>,</span>
-<span>      panel.grid.major <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html" class="external-link">element_blank</a></span><span class="op">(</span><span class="op">)</span>,</span>
-<span>      panel.grid.minor <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html" class="external-link">element_blank</a></span><span class="op">(</span><span class="op">)</span>,</span>
-<span>      plot.caption <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html" class="external-link">element_text</a></span><span class="op">(</span></span>
-<span>        face <span class="op">=</span> <span class="st">"italic"</span>,</span>
-<span>        family <span class="op">=</span> <span class="st">"Georgia"</span></span>
-<span>      <span class="op">)</span>,</span>
-<span>      legend.key <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html" class="external-link">element_rect</a></span><span class="op">(</span>colour <span class="op">=</span> <span class="cn">NA</span><span class="op">)</span>,</span>
-<span>      legend.position <span class="op">=</span> <span class="st">"bottom"</span>,</span>
-<span>      legend.direction <span class="op">=</span> <span class="st">"horizontal"</span>,</span>
-<span>      legend.box <span class="op">=</span> <span class="st">"vertical"</span>,</span>
-<span>      legend.key.size <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/grid/unit.html" class="external-link">unit</a></span><span class="op">(</span><span class="fl">0.5</span>, <span class="st">"cm"</span><span class="op">)</span>,</span>
-<span>      <span class="co"># legend.margin = unit(0, "cm"),</span></span>
-<span>      legend.title <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html" class="external-link">element_text</a></span><span class="op">(</span>face <span class="op">=</span> <span class="st">"italic"</span><span class="op">)</span>,</span>
-<span>      plot.margin <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/grid/unit.html" class="external-link">unit</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">10</span>, <span class="fl">5</span>, <span class="fl">5</span>, <span class="fl">5</span><span class="op">)</span>, <span class="st">"mm"</span><span class="op">)</span>,</span>
-<span>      strip.background <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html" class="external-link">element_rect</a></span><span class="op">(</span>colour <span class="op">=</span> <span class="st">"#f0f0f0"</span>, fill <span class="op">=</span> <span class="st">"#f0f0f0"</span><span class="op">)</span>,</span>
-<span>      strip.text <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html" class="external-link">element_text</a></span><span class="op">(</span>face <span class="op">=</span> <span class="st">"bold"</span><span class="op">)</span></span>
-<span>    <span class="op">)</span></span>
-<span><span class="op">}</span></span></code></pre></div>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/data.html" class="external-link">data</a></span><span class="op">(</span><span class="st">"bullpen"</span><span class="op">)</span></span></code></pre></div>
 <p>This example will walk through the analysis used in the paper. The first step is to run a logistic regression with <code>jur_caused</code> as the response variable and the chosen explanatory variable(s) In this example, <code>jur_race_w</code> is being used. This variable is based on <code>jur_race</code>, but has “White” as the reference level instead of the alphabetic value “Black”.</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">lr_caused</span> <span class="op">&lt;-</span> <span class="fu">stats</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/r/stats/glm.html" class="external-link">glm</a></span><span class="op">(</span><span class="va">jur_caused</span> <span class="op">~</span> <span class="va">jur_race_w</span>, data <span class="op">=</span> <span class="va">bullpen</span>, family <span class="op">=</span> <span class="st">"binomial"</span><span class="op">)</span></span></code></pre></div>
@@ -426,7 +160,7 @@
 <span><span class="co">#&gt; ----------------------------------------------------------------</span></span></code></pre></div>
 <p>A table with the odds ratios can be calculated using the built-in <code>calculate_odds</code> function.</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu">calculate_odds</span><span class="op">(</span><span class="va">lr_caused</span><span class="op">)</span></span>
+<code class="sourceCode R"><span><span class="fu"><a href="../reference/calculate_odds.html">calculate_odds</a></span><span class="op">(</span><span class="va">lr_caused</span><span class="op">)</span></span>
 <span><span class="co">#&gt; Waiting for profiling to be done...</span></span>
 <span><span class="co">#&gt;                           OR     2.5 %    97.5 %</span></span>
 <span><span class="co">#&gt; (Intercept)        0.7038582 0.6376588 0.7764931</span></span>
@@ -440,13 +174,6 @@
 <p><span class="math display">\[
 \log\left[ \frac { \widehat{P( \operatorname{jur\_caused} = \operatorname{Yes} )} }{ 1 - \widehat{P( \operatorname{jur\_caused} = \operatorname{Yes} )} } \right] = -0.35 + 0.47(\operatorname{jur\_race\_w}_{\operatorname{Black}}) + 0.58(\operatorname{jur\_race\_w}_{\operatorname{Hispanic}}) + 0.44(\operatorname{jur\_race\_w}_{\operatorname{Asian}}) + 0.24(\operatorname{jur\_race\_w}_{\operatorname{Other}})
 \]</span></p>
-<p>Finally, the odds ratios and confidence intervals can be plotted using the built-in <code>plots_odds_ratios</code> function.</p>
-<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu">plot_odds_ratios</span><span class="op">(</span><span class="va">lr_caused</span>, <span class="st">"Reference race is White"</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html" class="external-link">ggtitle</a></span><span class="op">(</span><span class="st">"Caused by Juror Race"</span><span class="op">)</span></span>
-<span><span class="co">#&gt; Warning: 'tidy.numeric' is deprecated.</span></span>
-<span><span class="co">#&gt; See help("Deprecated")</span></span>
-<span><span class="co">#&gt; Waiting for profiling to be done...</span></span></code></pre></div>
-<p><img src="standard-analysis_files/figure-html/unnamed-chunk-6-1.png" width="700"></p>
   </main>
 </div>
 

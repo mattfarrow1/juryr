@@ -3,9 +3,10 @@ pkgdown: 2.0.6
 pkgdown_sha: ~
 articles:
   data: data.html
+  odds-ratios: odds-ratios.html
   standard-analysis: standard-analysis.html
   summary-data: summary-data.html
-last_built: 2022-08-08T03:33Z
+last_built: 2022-08-09T03:00Z
 urls:
   reference: https://dallasjurydata.com/reference
   article: https://dallasjurydata.com/articles

@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="description" content="juryR">
-<title>Summary Data • juryR</title>
+<title>Calculating Odds Ratios • juryR</title>
 <!-- favicons --><link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
 <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png">
 <link rel="apple-touch-icon" type="image/png" sizes="180x180" href="../apple-touch-icon.png">
@@ -17,7 +17,7 @@
 <link href="../deps/bootstrap-5.1.3/bootstrap.min.css" rel="stylesheet">
 <script src="../deps/bootstrap-5.1.3/bootstrap.bundle.min.js"></script><!-- Font Awesome icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/v4-shims.min.css" integrity="sha256-wZjR52fzng1pJHwx4aV2AO3yyTOXrcDW7jBpJtTwVxw=" crossorigin="anonymous">
-<!-- bootstrap-toc --><script src="https://cdn.rawgit.com/afeld/bootstrap-toc/v1.0.1/dist/bootstrap-toc.min.js"></script><!-- headroom.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/headroom.min.js" integrity="sha256-AsUX4SJE1+yuDu5+mAVzJbuYNPHj/WroHuZ8Ir/CkE0=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script><!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><!-- search --><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- pkgdown --><script src="../pkgdown.js"></script><meta property="og:title" content="Summary Data">
+<!-- bootstrap-toc --><script src="https://cdn.rawgit.com/afeld/bootstrap-toc/v1.0.1/dist/bootstrap-toc.min.js"></script><!-- headroom.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/headroom.min.js" integrity="sha256-AsUX4SJE1+yuDu5+mAVzJbuYNPHj/WroHuZ8Ir/CkE0=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script><!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><!-- search --><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- pkgdown --><script src="../pkgdown.js"></script><meta property="og:title" content="Calculating Odds Ratios">
 <meta property="og:description" content="juryR">
 <meta property="og:image" content="https://dallasjurydata.com/logo.png">
 <!-- mathjax --><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js" integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/config/TeX-AMS-MML_HTMLorMML.js" integrity="sha256-84DKXVJXs0/F8OTMzX4UR909+jtl4G7SPypPavF+GfA=" crossorigin="anonymous"></script><!--[if lt IE 9]>
@@ -78,153 +78,16 @@
 
 <div class="row">
   <main id="main" class="col-md-9"><div class="page-header">
-      <img src="../logo.png" class="logo" alt=""><h1>Summary Data</h1>
+      <img src="../logo.png" class="logo" alt=""><h1>Calculating Odds Ratios</h1>
             
       
-      <small class="dont-index">Source: <a href="https://github.com/mattfarrow1/juryr/blob/HEAD/vignettes/summary-data.Rmd" class="external-link"><code>vignettes/summary-data.Rmd</code></a></small>
-      <div class="d-none name"><code>summary-data.Rmd</code></div>
+      <small class="dont-index">Source: <a href="https://github.com/mattfarrow1/juryr/blob/HEAD/vignettes/odds-ratios.Rmd" class="external-link"><code>vignettes/odds-ratios.Rmd</code></a></small>
+      <div class="d-none name"><code>odds-ratios.Rmd</code></div>
     </div>
 
     
     
-<table class="table">
-<colgroup>
-<col width="7%">
-<col width="3%">
-<col width="5%">
-<col width="4%">
-<col width="4%">
-<col width="4%">
-<col width="4%">
-<col width="7%">
-<col width="5%">
-<col width="9%">
-<col width="9%">
-<col width="9%">
-<col width="4%">
-<col width="4%">
-<col width="4%">
-<col width="4%">
-<col width="2%">
-</colgroup>
-<thead><tr class="header">
-<th>Category</th>
-<th>Male</th>
-<th>Female</th>
-<th>Other</th>
-<th>White</th>
-<th>Asian</th>
-<th>Black</th>
-<th>Hispanic</th>
-<th>Other*</th>
-<th>North I-30</th>
-<th>South I-30</th>
-<th>Split I-30</th>
-<th>18-30</th>
-<th>31-40</th>
-<th>41-50</th>
-<th>51-60</th>
-<th>61+</th>
-</tr></thead>
-<tbody>
-<tr class="odd">
-<td><em>Showed Up</em></td>
-<td>1510</td>
-<td>1739</td>
-<td>51</td>
-<td>1648</td>
-<td>200</td>
-<td>605</td>
-<td>639</td>
-<td>208</td>
-<td>2166</td>
-<td>1027</td>
-<td>106</td>
-<td>636</td>
-<td>623</td>
-<td>664</td>
-<td>812</td>
-<td>565</td>
-</tr>
-<tr class="even">
-<td><em>Caused</em></td>
-<td>688</td>
-<td>754</td>
-<td>26</td>
-<td>675</td>
-<td>75</td>
-<td>316</td>
-<td>302</td>
-<td>93</td>
-<td>928</td>
-<td>488</td>
-<td>52</td>
-<td>329</td>
-<td>334</td>
-<td>319</td>
-<td>365</td>
-<td>277</td>
-</tr>
-<tr class="odd">
-<td><em>State Strike</em></td>
-<td>209</td>
-<td>248</td>
-<td>4</td>
-<td>221</td>
-<td>24</td>
-<td>107</td>
-<td>76</td>
-<td>33</td>
-<td>304</td>
-<td>147</td>
-<td>10</td>
-<td>107</td>
-<td>87</td>
-<td>81</td>
-<td>109</td>
-<td>77</td>
-</tr>
-<tr class="even">
-<td><em>Defense Strike</em></td>
-<td>210</td>
-<td>280</td>
-<td>3</td>
-<td>356</td>
-<td>16</td>
-<td>46</td>
-<td>46</td>
-<td>29</td>
-<td>353</td>
-<td>123</td>
-<td>17</td>
-<td>67</td>
-<td>71</td>
-<td>113</td>
-<td>149</td>
-<td>93</td>
-</tr>
-<tr class="odd">
-<td><em># on Jury</em></td>
-<td>337</td>
-<td>388</td>
-<td>8</td>
-<td>407</td>
-<td>36</td>
-<td>131</td>
-<td>115</td>
-<td>44</td>
-<td>494</td>
-<td>215</td>
-<td>23</td>
-<td>133</td>
-<td>125</td>
-<td>163</td>
-<td>193</td>
-<td>119</td>
-</tr>
-</tbody>
-</table>
-<p>The specific reason for the highest occurring causes for each column.</p>
+
   </main>
 </div>
 

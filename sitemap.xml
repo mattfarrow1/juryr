@@ -13,6 +13,9 @@
     <loc>https://dallasjurydata.com/articles/index.html</loc>
   </url>
   <url>
+    <loc>https://dallasjurydata.com/articles/odds-ratios.html</loc>
+  </url>
+  <url>
     <loc>https://dallasjurydata.com/articles/standard-analysis.html</loc>
   </url>
   <url>
@@ -28,7 +31,100 @@
     <loc>https://dallasjurydata.com/reference/bullpen.html</loc>
   </url>
   <url>
+    <loc>https://dallasjurydata.com/reference/calculate_odds.html</loc>
+  </url>
+  <url>
+    <loc>https://dallasjurydata.com/reference/get_coef_positions.html</loc>
+  </url>
+  <url>
     <loc>https://dallasjurydata.com/reference/index.html</loc>
+  </url>
+  <url>
+    <loc>https://dallasjurydata.com/reference/lr_bias_a_g_def.html</loc>
+  </url>
+  <url>
+    <loc>https://dallasjurydata.com/reference/lr_bias_a_g_def_g.html</loc>
+  </url>
+  <url>
+    <loc>https://dallasjurydata.com/reference/lr_bias_a_g_police.html</loc>
+  </url>
+  <url>
+    <loc>https://dallasjurydata.com/reference/lr_bias_a_g_police_a.html</loc>
+  </url>
+  <url>
+    <loc>https://dallasjurydata.com/reference/lr_bias_a_g_police_g.html</loc>
+  </url>
+  <url>
+    <loc>https://dallasjurydata.com/reference/lr_bias_a_g_state_g.html</loc>
+  </url>
+  <url>
+    <loc>https://dallasjurydata.com/reference/lr_cause_5am.html</loc>
+  </url>
+  <url>
+    <loc>https://dallasjurydata.com/reference/lr_cause_5am_a.html</loc>
+  </url>
+  <url>
+    <loc>https://dallasjurydata.com/reference/lr_cause_5am_g.html</loc>
+  </url>
+  <url>
+    <loc>https://dallasjurydata.com/reference/lr_cause_bias.html</loc>
+  </url>
+  <url>
+    <loc>https://dallasjurydata.com/reference/lr_cause_bias_a.html</loc>
+  </url>
+  <url>
+    <loc>https://dallasjurydata.com/reference/lr_cause_bias_g.html</loc>
+  </url>
+  <url>
+    <loc>https://dallasjurydata.com/reference/lr_cause_bop.html</loc>
+  </url>
+  <url>
+    <loc>https://dallasjurydata.com/reference/lr_cause_bop_a.html</loc>
+  </url>
+  <url>
+    <loc>https://dallasjurydata.com/reference/lr_cause_bop_g.html</loc>
+  </url>
+  <url>
+    <loc>https://dallasjurydata.com/reference/lr_cause_inn.html</loc>
+  </url>
+  <url>
+    <loc>https://dallasjurydata.com/reference/lr_cause_inn_a.html</loc>
+  </url>
+  <url>
+    <loc>https://dallasjurydata.com/reference/lr_cause_pun.html</loc>
+  </url>
+  <url>
+    <loc>https://dallasjurydata.com/reference/lr_cause_pun_a.html</loc>
+  </url>
+  <url>
+    <loc>https://dallasjurydata.com/reference/lr_cause_pun_g.html</loc>
+  </url>
+  <url>
+    <loc>https://dallasjurydata.com/reference/lr_caused.html</loc>
+  </url>
+  <url>
+    <loc>https://dallasjurydata.com/reference/lr_caused_a.html</loc>
+  </url>
+  <url>
+    <loc>https://dallasjurydata.com/reference/lr_caused_g.html</loc>
+  </url>
+  <url>
+    <loc>https://dallasjurydata.com/reference/lr_caused_i30.html</loc>
+  </url>
+  <url>
+    <loc>https://dallasjurydata.com/reference/lr_caused_mf.html</loc>
+  </url>
+  <url>
+    <loc>https://dallasjurydata.com/reference/lr_i30.html</loc>
+  </url>
+  <url>
+    <loc>https://dallasjurydata.com/reference/lr_pun_max.html</loc>
+  </url>
+  <url>
+    <loc>https://dallasjurydata.com/reference/lr_pun_max_a.html</loc>
+  </url>
+  <url>
+    <loc>https://dallasjurydata.com/reference/lr_pun_min_a.html</loc>
   </url>
   <url>
     <loc>https://dallasjurydata.com/reference/venire.html</loc>
