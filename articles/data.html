@@ -75,7 +75,7 @@
 
 
 
-
+<script src="data_files/kePrint-0.0.1/kePrint.js"></script><link href="data_files/lightable-0.0.1/lightable.css" rel="stylesheet">
 <div class="row">
   <main id="main" class="col-md-9"><div class="page-header">
       <img src="../logo.png" class="logo" alt=""><h1>Data Dictionary</h1>
@@ -413,6 +413,1375 @@
 </tr>
 </tbody>
 </table>
+</div>
+<div class="section level2">
+<h2 id="examine-the-data">Examine the Data<a class="anchor" aria-label="anchor" href="#examine-the-data"></a>
+</h2>
+<p>Here you can see the first six rows of data for the <code>bullpen</code> dataset.</p>
+<div style="border: 1px solid #ddd; padding: 0px; overflow-y: scroll; height:400px; overflow-x: scroll; width:100%; ">
+<table class="table table table-striped table-hover table-condensed table-responsive" style="margin-left: auto; margin-right: auto;">
+<thead><tr>
+<th style="text-align:right;position: sticky; top:0; background-color: #FFFFFF;">
+juror_id
+</th>
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
+venireperson
+</th>
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
+caused
+</th>
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
+state
+</th>
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
+defense
+</th>
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
+juror_not_struck
+</th>
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
+ammend_5
+</th>
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
+judgement
+</th>
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
+inn
+</th>
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
+bias_no_fair
+</th>
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
+bias_for_state
+</th>
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
+bias_a_g_state
+</th>
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
+bias_for_def
+</th>
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
+bias_a_g_def
+</th>
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
+bias_a_g_police
+</th>
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
+bias_for_police
+</th>
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
+cant_follow_law
+</th>
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
+attn
+</th>
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
+bop_100_percent
+</th>
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
+phys
+</th>
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
+agmt
+</th>
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
+vict
+</th>
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
+eye_witness
+</th>
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
+pun
+</th>
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
+pun_min
+</th>
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
+pun_max
+</th>
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
+esl
+</th>
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
+covid
+</th>
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
+med
+</th>
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
+prior_conviction
+</th>
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
+no_show
+</th>
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
+work_exempt
+</th>
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
+child_exempt
+</th>
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
+age_exempt
+</th>
+<th style="text-align:right;position: sticky; top:0; background-color: #FFFFFF;">
+jur_age
+</th>
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
+jur_race
+</th>
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
+jur_gend
+</th>
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
+zip_code
+</th>
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
+four
+</th>
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
+defendants_name
+</th>
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
+defendants_race
+</th>
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
+defendants_gender
+</th>
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
+cause_number_f_xx_xxxxx
+</th>
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
+charge
+</th>
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
+verdict
+</th>
+<th style="text-align:right;position: sticky; top:0; background-color: #FFFFFF;">
+punishment_number_years
+</th>
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
+probation
+</th>
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
+notes
+</th>
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
+age_group
+</th>
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
+peremptory_strike
+</th>
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
+jur_caused
+</th>
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
+jur_struck
+</th>
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
+jur_exempt
+</th>
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
+jur_disqualified
+</th>
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
+jur_biased
+</th>
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
+jur_pun
+</th>
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
+city
+</th>
+<th style="text-align:right;position: sticky; top:0; background-color: #FFFFFF;">
+income_mean_household_income_hh_cnt
+</th>
+<th style="text-align:right;position: sticky; top:0; background-color: #FFFFFF;">
+income_mean_nonfamily_income_hh_cnt
+</th>
+<th style="text-align:right;position: sticky; top:0; background-color: #FFFFFF;">
+income_median_family_income_fam_cnt
+</th>
+<th style="text-align:right;position: sticky; top:0; background-color: #FFFFFF;">
+income_median_household_income_hh_cnt
+</th>
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
+i_30
+</th>
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
+po_box
+</th>
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
+jur_race_w
+</th>
+</tr></thead>
+<tbody>
+<tr>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:left;">
+2
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+1
+</td>
+<td style="text-align:left;">
+Not a Juror
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:right;">
+54
+</td>
+<td style="text-align:left;">
+Hispanic
+</td>
+<td style="text-align:left;">
+Female
+</td>
+<td style="text-align:left;">
+75172
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+def_18
+</td>
+<td style="text-align:left;">
+Black
+</td>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:left;">
+trial_36
+</td>
+<td style="text-align:left;">
+Murder
+</td>
+<td style="text-align:left;">
+Lesser
+</td>
+<td style="text-align:right;">
+10
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+Verdict: Manslaughter, the lesser included offense of murder
+</td>
+<td style="text-align:left;">
+45 - 54
+</td>
+<td style="text-align:left;">
+Defense
+</td>
+<td style="text-align:left;">
+No
+</td>
+<td style="text-align:left;">
+Yes
+</td>
+<td style="text-align:left;">
+No
+</td>
+<td style="text-align:left;">
+No
+</td>
+<td style="text-align:left;">
+No
+</td>
+<td style="text-align:left;">
+No
+</td>
+<td style="text-align:left;">
+Wilmer
+</td>
+<td style="text-align:right;">
+49578
+</td>
+<td style="text-align:right;">
+32380
+</td>
+<td style="text-align:right;">
+55357
+</td>
+<td style="text-align:right;">
+44891
+</td>
+<td style="text-align:left;">
+South
+</td>
+<td style="text-align:left;">
+N
+</td>
+<td style="text-align:left;">
+Hispanic
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:left;">
+3
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+1
+</td>
+<td style="text-align:left;">
+Not a Juror
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:right;">
+67
+</td>
+<td style="text-align:left;">
+White
+</td>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:left;">
+75001
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+def_18
+</td>
+<td style="text-align:left;">
+Black
+</td>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:left;">
+trial_36
+</td>
+<td style="text-align:left;">
+Murder
+</td>
+<td style="text-align:left;">
+Lesser
+</td>
+<td style="text-align:right;">
+10
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+Verdict: Manslaughter, the lesser included offense of murder
+</td>
+<td style="text-align:left;">
+55 +
+</td>
+<td style="text-align:left;">
+Defense
+</td>
+<td style="text-align:left;">
+No
+</td>
+<td style="text-align:left;">
+Yes
+</td>
+<td style="text-align:left;">
+No
+</td>
+<td style="text-align:left;">
+No
+</td>
+<td style="text-align:left;">
+No
+</td>
+<td style="text-align:left;">
+No
+</td>
+<td style="text-align:left;">
+Addison
+</td>
+<td style="text-align:right;">
+87472
+</td>
+<td style="text-align:right;">
+79604
+</td>
+<td style="text-align:right;">
+79551
+</td>
+<td style="text-align:right;">
+72512
+</td>
+<td style="text-align:left;">
+North
+</td>
+<td style="text-align:left;">
+N
+</td>
+<td style="text-align:left;">
+White
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:left;">
+5
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+Juror
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:right;">
+26
+</td>
+<td style="text-align:left;">
+White
+</td>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:left;">
+75081
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+def_18
+</td>
+<td style="text-align:left;">
+Black
+</td>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:left;">
+trial_36
+</td>
+<td style="text-align:left;">
+Murder
+</td>
+<td style="text-align:left;">
+Lesser
+</td>
+<td style="text-align:right;">
+10
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+Verdict: Manslaughter, the lesser included offense of murder
+</td>
+<td style="text-align:left;">
+18 - 30
+</td>
+<td style="text-align:left;">
+No
+</td>
+<td style="text-align:left;">
+No
+</td>
+<td style="text-align:left;">
+No
+</td>
+<td style="text-align:left;">
+No
+</td>
+<td style="text-align:left;">
+No
+</td>
+<td style="text-align:left;">
+No
+</td>
+<td style="text-align:left;">
+No
+</td>
+<td style="text-align:left;">
+Richardson
+</td>
+<td style="text-align:right;">
+93298
+</td>
+<td style="text-align:right;">
+67961
+</td>
+<td style="text-align:right;">
+89191
+</td>
+<td style="text-align:right;">
+77174
+</td>
+<td style="text-align:left;">
+North
+</td>
+<td style="text-align:left;">
+N
+</td>
+<td style="text-align:left;">
+White
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:left;">
+6
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+Juror
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:right;">
+27
+</td>
+<td style="text-align:left;">
+Asian
+</td>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:left;">
+75202
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+def_18
+</td>
+<td style="text-align:left;">
+Black
+</td>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:left;">
+trial_36
+</td>
+<td style="text-align:left;">
+Murder
+</td>
+<td style="text-align:left;">
+Lesser
+</td>
+<td style="text-align:right;">
+10
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+Verdict: Manslaughter, the lesser included offense of murder
+</td>
+<td style="text-align:left;">
+18 - 30
+</td>
+<td style="text-align:left;">
+No
+</td>
+<td style="text-align:left;">
+No
+</td>
+<td style="text-align:left;">
+No
+</td>
+<td style="text-align:left;">
+No
+</td>
+<td style="text-align:left;">
+No
+</td>
+<td style="text-align:left;">
+No
+</td>
+<td style="text-align:left;">
+No
+</td>
+<td style="text-align:left;">
+Dallas
+</td>
+<td style="text-align:right;">
+102286
+</td>
+<td style="text-align:right;">
+95709
+</td>
+<td style="text-align:right;">
+107500
+</td>
+<td style="text-align:right;">
+79766
+</td>
+<td style="text-align:left;">
+North
+</td>
+<td style="text-align:left;">
+N
+</td>
+<td style="text-align:left;">
+Asian
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+5
+</td>
+<td style="text-align:left;">
+7
+</td>
+<td style="text-align:left;">
+1
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+Not a Juror
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+1
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:right;">
+30
+</td>
+<td style="text-align:left;">
+Black
+</td>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:left;">
+75116
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+def_18
+</td>
+<td style="text-align:left;">
+Black
+</td>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:left;">
+trial_36
+</td>
+<td style="text-align:left;">
+Murder
+</td>
+<td style="text-align:left;">
+Lesser
+</td>
+<td style="text-align:right;">
+10
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+Verdict: Manslaughter, the lesser included offense of murder
+</td>
+<td style="text-align:left;">
+31 - 44
+</td>
+<td style="text-align:left;">
+No
+</td>
+<td style="text-align:left;">
+Yes
+</td>
+<td style="text-align:left;">
+No
+</td>
+<td style="text-align:left;">
+No
+</td>
+<td style="text-align:left;">
+No
+</td>
+<td style="text-align:left;">
+No
+</td>
+<td style="text-align:left;">
+No
+</td>
+<td style="text-align:left;">
+Duncanville
+</td>
+<td style="text-align:right;">
+58023
+</td>
+<td style="text-align:right;">
+37153
+</td>
+<td style="text-align:right;">
+55425
+</td>
+<td style="text-align:right;">
+45827
+</td>
+<td style="text-align:left;">
+South
+</td>
+<td style="text-align:left;">
+N
+</td>
+<td style="text-align:left;">
+Black
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+6
+</td>
+<td style="text-align:left;">
+8
+</td>
+<td style="text-align:left;">
+1
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+Not a Juror
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+1
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:right;">
+29
+</td>
+<td style="text-align:left;">
+White
+</td>
+<td style="text-align:left;">
+Female
+</td>
+<td style="text-align:left;">
+75051
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+def_18
+</td>
+<td style="text-align:left;">
+Black
+</td>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:left;">
+trial_36
+</td>
+<td style="text-align:left;">
+Murder
+</td>
+<td style="text-align:left;">
+Lesser
+</td>
+<td style="text-align:right;">
+10
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+Verdict: Manslaughter, the lesser included offense of murder
+</td>
+<td style="text-align:left;">
+18 - 30
+</td>
+<td style="text-align:left;">
+No
+</td>
+<td style="text-align:left;">
+Yes
+</td>
+<td style="text-align:left;">
+No
+</td>
+<td style="text-align:left;">
+No
+</td>
+<td style="text-align:left;">
+No
+</td>
+<td style="text-align:left;">
+No
+</td>
+<td style="text-align:left;">
+No
+</td>
+<td style="text-align:left;">
+Grand Prairie
+</td>
+<td style="text-align:right;">
+52516
+</td>
+<td style="text-align:right;">
+31901
+</td>
+<td style="text-align:right;">
+49351
+</td>
+<td style="text-align:right;">
+42922
+</td>
+<td style="text-align:left;">
+South
+</td>
+<td style="text-align:left;">
+N
+</td>
+<td style="text-align:left;">
+White
+</td>
+</tr>
+</tbody>
+</table>
+</div>
 </div>
   </main><aside class="col-md-3"><nav id="toc"><h2>On this page</h2>
     </nav></aside>
