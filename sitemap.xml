@@ -4,7 +4,7 @@
     <loc>https://dallasjurydata.com/404.html</loc>
   </url>
   <url>
-    <loc>https://dallasjurydata.com/LICENSE.html</loc>
+    <loc>https://dallasjurydata.com/LICENSE-text.html</loc>
   </url>
   <url>
     <loc>https://dallasjurydata.com/articles/data.html</loc>
@@ -16,7 +16,7 @@
     <loc>https://dallasjurydata.com/articles/odds-ratios.html</loc>
   </url>
   <url>
-    <loc>https://dallasjurydata.com/articles/standard-analysis.html</loc>
+    <loc>https://dallasjurydata.com/articles/risk-ratios.html</loc>
   </url>
   <url>
     <loc>https://dallasjurydata.com/articles/summary-data.html</loc>
@@ -32,6 +32,9 @@
   </url>
   <url>
     <loc>https://dallasjurydata.com/reference/calculate_odds.html</loc>
+  </url>
+  <url>
+    <loc>https://dallasjurydata.com/reference/calculate_risk.html</loc>
   </url>
   <url>
     <loc>https://dallasjurydata.com/reference/get_coef_positions.html</loc>

@@ -4,9 +4,9 @@ pkgdown_sha: ~
 articles:
   data: data.html
   odds-ratios: odds-ratios.html
-  standard-analysis: standard-analysis.html
+  risk-ratios: risk-ratios.html
   summary-data: summary-data.html
-last_built: 2022-08-09T03:00Z
+last_built: 2022-08-10T03:56Z
 urls:
   reference: https://dallasjurydata.com/reference
   article: https://dallasjurydata.com/articles
