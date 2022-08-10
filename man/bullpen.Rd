@@ -13,4 +13,7 @@ data(bullpen)
 \description{
 Information on venirepersons who were not disqualified or exempted.
 }
+\examples{
+data(bullpen)
+}
 \keyword{datasets}

@@ -14,4 +14,8 @@ data(venire)
 Information on venirepersons who took part in jury selection for the trials
 in the study.
 }
+\examples{
+data(venire)
+
+}
 \keyword{datasets}
