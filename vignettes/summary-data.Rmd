@@ -2,7 +2,7 @@
 title: "Summary Data"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{summary-data}
+  %\VignetteIndexEntry{Summary Data}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---

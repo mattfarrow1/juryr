@@ -2,7 +2,7 @@
 title: "Data Dictionary"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{data}
+  %\VignetteIndexEntry{Data Dictionary}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---

@@ -2,7 +2,11 @@
 #'
 #' Information on venirepersons who were not disqualified or exempted.
 #'
-#' @format A data frame with 3128 rows and 65 variables:
+#' @docType data
+#'
+#' @usage data(bullpen)
+#'
+#' @format A data frame with 3128 rows and 65 variables.
 #' \describe{
 #'  \item{juror_id}{Unique juror identifier.}
 #'  \item{venireperson}{Uique juror identifier per trial.}
@@ -63,12 +67,22 @@
 #'  \item{po_box}{Zip code is associated with a P.O. Box.}
 #'  \item{jur_race_w}{Same as jur_race, but with "White" as the reference level.}
 #' }
+#'
+#' @keywords datasets
+#'
+#' @examples
+#' data(bullpen)
 "bullpen"
+
 
 #' Venire Information
 #'
 #' Information on venirepersons who took part in jury selection for the trials
 #' in the study.
+#'
+#' @docType data
+#'
+#' @usage data(venire)
 #'
 #' @format A data frame with 3,300 rows and 57 variables:
 #' \describe{
@@ -127,4 +141,10 @@
 #'  \item{jur_biased}{Summary variable for bias.}
 #'  \item{jur_pun}{Summary variable for punishment.}
 #' }
+#'
+#' @keywords datasets
+#'
+#' @examples
+#' data(venire)
+#'
 "venire"

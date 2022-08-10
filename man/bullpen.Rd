@@ -8,7 +8,7 @@
 
 }
 \usage{
-bullpen
+data(bullpen)
 }
 \description{
 Information on venirepersons who were not disqualified or exempted.

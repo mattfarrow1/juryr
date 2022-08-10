@@ -13,21 +13,14 @@ License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
 Imports:
-    broom.mixed,
-    cli,
-    equatiomatic,
-    ggthemes,
-    glue,
+    stats
+Suggests:
+    epitools,
     jtools,
-    knitr,
-    lifecycle,
-    rlang,
-    rmarkdown,
-    tidyverse,
-    withr
+    kableExtra
 RoxygenNote: 7.2.1
 VignetteBuilder: knitr
 URL: https://dallasjurydata.com/, https://github.com/mattfarrow1/juryr
 BugReports: https://github.com/mattfarrow1/juryr/issues
 Depends: 
-    R (>= 2.10)
+    R (>= 3.5.0)

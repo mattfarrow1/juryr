@@ -1,8 +1,8 @@
 ---
-title: "Calculating Odds Ratios"
+title: "Calculating Risk Ratios"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{Calculating Odds Ratios}
+  %\VignetteIndexEntry{Calculating Risk Ratios}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
@@ -31,13 +31,13 @@ jtools::summ(lr_caused)
 The odds ratios of each model, along with a 95% confidence interval, can be calculated using the following:
 
 ```{r}
-calculate_odds(lr_caused)
+calculate_risk(lr_caused)
 ```
 
 To reproduce the figures as they are seen in the paper, the following code can be used:
 
 ```{r}
-calculate_odds(lr_caused) |> 
+calculate_risk(lr_caused) |> 
   kableExtra::kable(digits = 3) |> 
   kableExtra::kable_classic(full_width = FALSE, html_font = "Cambria")
 ```

@@ -8,7 +8,7 @@
 
 }
 \usage{
-venire
+data(venire)
 }
 \description{
 Information on venirepersons who took part in jury selection for the trials

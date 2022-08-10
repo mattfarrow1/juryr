@@ -17,5 +17,4 @@ Create an odds ratio table
 }
 \examples{
 calculate_odds(lr_caused)
-calculate_odds(lr_cause_inn)
 }
