@@ -19,11 +19,11 @@
 #'  \item{inn}{Caused for inability to presume a defendant's innocence.}
 #'  \item{bias_no_fair}{Venireperson was challenged and struck for bias.}
 #'  \item{bias_for_state}{Venireperson was challenged and struck for bias for the state.}
-#'  \item{bias_ag_state}{Venireperson was challenged and struck for bias against the state.}
+#'  \item{bias_a_g_state}{Venireperson was challenged and struck for bias against the state.}
 #'  \item{bias_for_def}{Venireperson was challenged and struck for bias for the defense.}
-#'  \item{bias_a_g_defe}{Venireperson was challenged and struck for bias against the defense.}
-#'  \item{bias_for_police}{Venireperson was challenged and struck for bias for the police.
+#'  \item{bias_a_g_def}{Venireperson was challenged and struck for bias against the defense.}
 #'  \item{bias_a_g_police}{Venireperson was challenged and struck for bias against the police.}
+#'  \item{bias_for_police}{Venireperson was challenged and struck for bias for the police.
 #'  \item{cant_follow_law}{Venireperson was challenged and struck for inability to follow the law.}
 #'  \item{attn}{Venireperson was challenged and struck for inability to pay attention.}
 #'  \item{bop_100_percent}{Venireperson was challenged and struck for requiring a higher burden of proof than "Beyond a Reasonable Doubt".}
@@ -40,15 +40,17 @@
 #'  \item{prior_conviction}{Venireperson had a prior conviction that made them ineligible for jury service.}
 #'  \item{no_show}{Venireperson checked in to the courthouse, but did not appear at the courtroom.}
 #'  \item{work_exempt}{Venireperson was excused for a work exemption.}
-#'  \item{chil_exempt}{Venireperson was excused for a childcare exemption.}
+#'  \item{child_exempt}{Venireperson was excused for a childcare exemption.}
 #'  \item{age_exempt}{Venireperson was excused for an age exemption.}
 #'  \item{jur_age}{Venireperson's age.}
 #'  \item{jur_race}{Venireperson's race.}
 #'  \item{jur_gend}{Venireperson's gender.}
 #'  \item{zip_code}{Venireperso's zip code.}
+#'  \item{four}{+ 4 digits after zip code.}
 #'  \item{defendants_name}{Anonymized name for each defendant.}
 #'  \item{defendants_race}{Defendant's race.}
 #'  \item{defendants_gender}{Defendant's gender.}
+#'  \item{cause_number_f_xx_xxxxx}{Anonymized trial number.}
 #'  \item{charge}{The charge against the defendant.}
 #'  \item{verdict}{The trial's verdict.}
 #'  \item{punishment_number_years}{The term of the punishment..}
@@ -97,11 +99,11 @@
 #'  \item{inn}{Caused for inability to presume a defendant's innocence.}
 #'  \item{bias_no_fair}{Venireperson was challenged and struck for bias.}
 #'  \item{bias_for_state}{Venireperson was challenged and struck for bias for the state.}
-#'  \item{bias_ag_state}{Venireperson was challenged and struck for bias against the state.}
+#'  \item{bias_a_g_state}{Venireperson was challenged and struck for bias against the state.}
 #'  \item{bias_for_def}{Venireperson was challenged and struck for bias for the defense.}
-#'  \item{bias_a_g_defe}{Venireperson was challenged and struck for bias against the defense.}
-#'  \item{bias_for_police}{Venireperson was challenged and struck for bias for the police.
+#'  \item{bias_a_g_def}{Venireperson was challenged and struck for bias against the defense.}
 #'  \item{bias_a_g_police}{Venireperson was challenged and struck for bias against the police.}
+#'  \item{bias_for_police}{Venireperson was challenged and struck for bias for the police.
 #'  \item{cant_follow_law}{Venireperson was challenged and struck for inability to follow the law.}
 #'  \item{attn}{Venireperson was challenged and struck for inability to pay attention.}
 #'  \item{bop_100_percent}{Venireperson was challenged and struck for requiring a higher burden of proof than "Beyond a Reasonable Doubt".}
@@ -118,15 +120,17 @@
 #'  \item{prior_conviction}{Venireperson had a prior conviction that made them ineligible for jury service.}
 #'  \item{no_show}{Venireperson checked in to the courthouse, but did not appear at the courtroom.}
 #'  \item{work_exempt}{Venireperson was excused for a work exemption.}
-#'  \item{chil_exempt}{Venireperson was excused for a childcare exemption.}
+#'  \item{child_exempt}{Venireperson was excused for a childcare exemption.}
 #'  \item{age_exempt}{Venireperson was excused for an age exemption.}
 #'  \item{jur_age}{Venireperson's age.}
 #'  \item{jur_race}{Venireperson's race.}
 #'  \item{jur_gend}{Venireperson's gender.}
 #'  \item{zip_code}{Venireperso's zip code.}
+#'  \item{four}{+ 4 digits after zip code.}
 #'  \item{defendants_name}{Anonymized name for each defendant.}
 #'  \item{defendants_race}{Defendant's race.}
 #'  \item{defendants_gender}{Defendant's gender.}
+#'  \item{cause_number_f_xx_xxxxx}{Anonymized trial number.}
 #'  \item{charge}{The charge against the defendant.}
 #'  \item{verdict}{The trial's verdict.}
 #'  \item{punishment_number_years}{The term of the punishment..}
