@@ -17,5 +17,4 @@ Get the position numbers of the coefficients
 }
 \examples{
 get_coef_positions(lr_caused)
-get_coef_positions(lr_cause_inn)
 }
