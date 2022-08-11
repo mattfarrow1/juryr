@@ -2,6 +2,7 @@
 #'
 #' @param x A logistic regression model.
 #' @return A risk ratio table.
+#' @export
 #' @examples
 #' calculate_risk(lr_caused)
 calculate_risk <- function(x) {
