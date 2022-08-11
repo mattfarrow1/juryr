@@ -5,17 +5,71 @@
 \alias{venire}
 \title{Venire Information}
 \format{
-
+A data frame with 3,300 rows and 57 variables:
+\describe{
+ \item{juror_id}{Unique juror identifier.}
+ \item{venireperson}{Uique juror identifier per trial.}
+ \item{caused}{Venireperson was challenged and struck for cause.}
+ \item{state}{State used peremptory challenge against venireperson.}
+ \item{defense}{Defense used peremptory challenge against venireperson.}
+ \item{juror_not_struck}{Juror status.}
+ \item{ammend_5}{Caused for inability to accept defendant's `5th` Amendment rights.}
+ \item{judgement}{Caused for inability to stand in judgement due to religious or moral beliefs.}
+ \item{inn}{Caused for inability to presume a defendant's innocence.}
+ \item{bias_no_fair}{Venireperson was challenged and struck for bias.}
+ \item{bias_for_state}{Venireperson was challenged and struck for bias for the state.}
+ \item{bias_a_g_state}{Venireperson was challenged and struck for bias against the state.}
+ \item{bias_for_def}{Venireperson was challenged and struck for bias for the defense.}
+ \item{bias_a_g_def}{Venireperson was challenged and struck for bias against the defense.}
+ \item{bias_a_g_police}{Venireperson was challenged and struck for bias against the police.}
+ \item{bias_for_police}{Venireperson was challenged and struck for bias for the police.}
+ \item{cant_follow_law}{Venireperson was challenged and struck for inability to follow the law.}
+ \item{attn}{Venireperson was challenged and struck for inability to pay attention.}
+ \item{bop_100_percent}{Venireperson was challenged and struck for requiring a higher burden of proof than beyond a reasonable doubt.}
+ \item{phys}{Venireperson was challenged and struck for requiring physical evidence.}
+ \item{agmt}{Venireperson was challenged and struck by agreement between the State and Defense.}
+ \item{vict}{Venireperson was challenged and struck for prior exerience as a victim.}
+ \item{eye_witness}{Venireperson was challenged and struck for being unable to accept only one witness.}
+ \item{pun}{Venireperson was challenged and struck for being unable to accept the full range of possible punishment.}
+ \item{pun_min}{Venireperson was challenged and struck for being unable to accept the minimum punishment.}
+ \item{pun_max}{Venireperson was challenged and struck for being unable to accept the maximum punishment.}
+ \item{esl}{Venireperson was unable to read and write English.}
+ \item{covid}{Venireperson was uncomfortable serving on a jury during COVID-19.}
+ \item{med}{Venireperson had medical issues that made them unfit for jury service.}
+ \item{prior_conviction}{Venireperson had a prior conviction that made them ineligible for jury service.}
+ \item{no_show}{Venireperson checked in to the courthouse, but did not appear at the courtroom.}
+ \item{work_exempt}{Venireperson was excused for a work exemption.}
+ \item{child_exempt}{Venireperson was excused for a childcare exemption.}
+ \item{age_exempt}{Venireperson was excused for an age exemption.}
+ \item{jur_age}{Venireperson's age.}
+ \item{jur_race}{Venireperson's race.}
+ \item{jur_gend}{Venireperson's gender.}
+ \item{zip_code}{Venireperso's zip code.}
+ \item{four}{4 digits after zip code.}
+ \item{defendants_name}{Anonymized name for each defendant.}
+ \item{defendants_race}{Defendant's race.}
+ \item{defendants_gender}{Defendant's gender.}
+ \item{cause_number_f_xx_xxxxx}{Anonymized trial number.}
+ \item{charge}{The charge against the defendant.}
+ \item{verdict}{The trial's verdict.}
+ \item{punishment_number_years}{The term of the punishment..}
+ \item{probation}{Defendant was put on probation.}
+ \item{notes}{Notes made by the Judge during jury selection.}
+ \item{age_group}{Venireperson's age binned into a group.}
+ \item{peremptory_strike}{Summary variable for State and Defense.}
+ \item{jur_caused}{Summary variable for dismissed for cause.}
+ \item{jur_struck}{Summary variable for struck.}
+ \item{jur_exempt}{Summary variable for exempt from service.}
+ \item{jur_disqualified}{Summary variable for disqualified.}
+ \item{jur_biased}{Summary variable for bias.}
+ \item{jur_pun}{Summary variable for punishment.}
+}
 }
 \usage{
-data(venire)
+venire
 }
 \description{
 Information on venirepersons who took part in jury selection for the trials
 in the study.
-}
-\examples{
-data(venire)
-
 }
 \keyword{datasets}

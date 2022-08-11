@@ -2,11 +2,7 @@
 #'
 #' Information on venirepersons who were not disqualified or exempted.
 #'
-#' @docType data
-#'
-#' @usage data(bullpen)
-#'
-#' @format A data frame with 3128 rows and 65 variables.
+#' @format A tibble with 3128 rows and 62 variables:
 #' \describe{
 #'  \item{juror_id}{Unique juror identifier.}
 #'  \item{venireperson}{Uique juror identifier per trial.}
@@ -23,10 +19,10 @@
 #'  \item{bias_for_def}{Venireperson was challenged and struck for bias for the defense.}
 #'  \item{bias_a_g_def}{Venireperson was challenged and struck for bias against the defense.}
 #'  \item{bias_a_g_police}{Venireperson was challenged and struck for bias against the police.}
-#'  \item{bias_for_police}{Venireperson was challenged and struck for bias for the police.
+#'  \item{bias_for_police}{Venireperson was challenged and struck for bias for the police.}
 #'  \item{cant_follow_law}{Venireperson was challenged and struck for inability to follow the law.}
 #'  \item{attn}{Venireperson was challenged and struck for inability to pay attention.}
-#'  \item{bop_100_percent}{Venireperson was challenged and struck for requiring a higher burden of proof than "Beyond a Reasonable Doubt".}
+#'  \item{bop_100_percent}{Venireperson was challenged and struck for requiring a higher burden of proof than beyond a reasonable doubt.}
 #'  \item{phys}{Venireperson was challenged and struck for requiring physical evidence.}
 #'  \item{agmt}{Venireperson was challenged and struck by agreement between the State and Defense.}
 #'  \item{vict}{Venireperson was challenged and struck for prior exerience as a victim.}
@@ -46,7 +42,7 @@
 #'  \item{jur_race}{Venireperson's race.}
 #'  \item{jur_gend}{Venireperson's gender.}
 #'  \item{zip_code}{Venireperso's zip code.}
-#'  \item{four}{+ 4 digits after zip code.}
+#'  \item{four}{4 digits after zip code.}
 #'  \item{defendants_name}{Anonymized name for each defendant.}
 #'  \item{defendants_race}{Defendant's race.}
 #'  \item{defendants_gender}{Defendant's gender.}
@@ -57,7 +53,7 @@
 #'  \item{probation}{Defendant was put on probation.}
 #'  \item{notes}{Notes made by the Judge during jury selection.}
 #'  \item{age_group}{Venireperson's age binned into a group.}
-#'  \item{peremptory_strike}{Summary variable for State & Defense.}
+#'  \item{peremptory_strike}{Summary variable for State and Defense.}
 #'  \item{jur_caused}{Summary variable for dismissed for cause.}
 #'  \item{jur_struck}{Summary variable for struck.}
 #'  \item{jur_exempt}{Summary variable for exempt from service.}
@@ -68,12 +64,7 @@
 #'  \item{i-30}{Location of zip code in relation to Interstate 30.}
 #'  \item{po_box}{Zip code is associated with a P.O. Box.}
 #'  \item{jur_race_w}{Same as jur_race, but with "White" as the reference level.}
-#' }
-#'
-#' @keywords datasets
-#'
-#' @examples
-#' data(bullpen)
+#'  }
 "bullpen"
 
 
@@ -81,10 +72,6 @@
 #'
 #' Information on venirepersons who took part in jury selection for the trials
 #' in the study.
-#'
-#' @docType data
-#'
-#' @usage data(venire)
 #'
 #' @format A data frame with 3,300 rows and 57 variables:
 #' \describe{
@@ -94,7 +81,7 @@
 #'  \item{state}{State used peremptory challenge against venireperson.}
 #'  \item{defense}{Defense used peremptory challenge against venireperson.}
 #'  \item{juror_not_struck}{Juror status.}
-#'  \item{ammend_5}{Caused for inability to accept defendant's 5th Amendment rights.}
+#'  \item{ammend_5}{Caused for inability to accept defendant's `5th` Amendment rights.}
 #'  \item{judgement}{Caused for inability to stand in judgement due to religious or moral beliefs.}
 #'  \item{inn}{Caused for inability to presume a defendant's innocence.}
 #'  \item{bias_no_fair}{Venireperson was challenged and struck for bias.}
@@ -103,10 +90,10 @@
 #'  \item{bias_for_def}{Venireperson was challenged and struck for bias for the defense.}
 #'  \item{bias_a_g_def}{Venireperson was challenged and struck for bias against the defense.}
 #'  \item{bias_a_g_police}{Venireperson was challenged and struck for bias against the police.}
-#'  \item{bias_for_police}{Venireperson was challenged and struck for bias for the police.
+#'  \item{bias_for_police}{Venireperson was challenged and struck for bias for the police.}
 #'  \item{cant_follow_law}{Venireperson was challenged and struck for inability to follow the law.}
 #'  \item{attn}{Venireperson was challenged and struck for inability to pay attention.}
-#'  \item{bop_100_percent}{Venireperson was challenged and struck for requiring a higher burden of proof than "Beyond a Reasonable Doubt".}
+#'  \item{bop_100_percent}{Venireperson was challenged and struck for requiring a higher burden of proof than beyond a reasonable doubt.}
 #'  \item{phys}{Venireperson was challenged and struck for requiring physical evidence.}
 #'  \item{agmt}{Venireperson was challenged and struck by agreement between the State and Defense.}
 #'  \item{vict}{Venireperson was challenged and struck for prior exerience as a victim.}
@@ -126,7 +113,7 @@
 #'  \item{jur_race}{Venireperson's race.}
 #'  \item{jur_gend}{Venireperson's gender.}
 #'  \item{zip_code}{Venireperso's zip code.}
-#'  \item{four}{+ 4 digits after zip code.}
+#'  \item{four}{4 digits after zip code.}
 #'  \item{defendants_name}{Anonymized name for each defendant.}
 #'  \item{defendants_race}{Defendant's race.}
 #'  \item{defendants_gender}{Defendant's gender.}
@@ -137,7 +124,7 @@
 #'  \item{probation}{Defendant was put on probation.}
 #'  \item{notes}{Notes made by the Judge during jury selection.}
 #'  \item{age_group}{Venireperson's age binned into a group.}
-#'  \item{peremptory_strike}{Summary variable for State & Defense.}
+#'  \item{peremptory_strike}{Summary variable for State and Defense.}
 #'  \item{jur_caused}{Summary variable for dismissed for cause.}
 #'  \item{jur_struck}{Summary variable for struck.}
 #'  \item{jur_exempt}{Summary variable for exempt from service.}
@@ -145,10 +132,4 @@
 #'  \item{jur_biased}{Summary variable for bias.}
 #'  \item{jur_pun}{Summary variable for punishment.}
 #' }
-#'
-#' @keywords datasets
-#'
-#' @examples
-#' data(venire)
-#'
 "venire"
