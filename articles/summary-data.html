@@ -87,145 +87,229 @@
 
     
     
-<table class="table">
-<colgroup>
-<col width="7%">
-<col width="3%">
-<col width="5%">
-<col width="4%">
-<col width="4%">
-<col width="4%">
-<col width="4%">
-<col width="7%">
-<col width="5%">
-<col width="9%">
-<col width="9%">
-<col width="9%">
-<col width="4%">
-<col width="4%">
-<col width="4%">
-<col width="4%">
-<col width="2%">
-</colgroup>
-<thead><tr class="header">
-<th>Category</th>
-<th>Male</th>
-<th>Female</th>
-<th>Other</th>
-<th>White</th>
-<th>Asian</th>
-<th>Black</th>
-<th>Hispanic</th>
-<th>Other*</th>
-<th>North I-30</th>
-<th>South I-30</th>
-<th>Split I-30</th>
-<th>18-30</th>
-<th>31-40</th>
-<th>41-50</th>
-<th>51-60</th>
-<th>61+</th>
-</tr></thead>
-<tbody>
-<tr class="odd">
-<td><em>Showed Up</em></td>
-<td>1510</td>
-<td>1739</td>
-<td>51</td>
-<td>1648</td>
-<td>200</td>
-<td>605</td>
-<td>639</td>
-<td>208</td>
-<td>2166</td>
-<td>1027</td>
-<td>106</td>
-<td>636</td>
-<td>623</td>
-<td>664</td>
-<td>812</td>
-<td>565</td>
-</tr>
-<tr class="even">
-<td><em>Caused</em></td>
-<td>688</td>
-<td>754</td>
-<td>26</td>
-<td>675</td>
-<td>75</td>
-<td>316</td>
-<td>302</td>
-<td>93</td>
-<td>928</td>
-<td>488</td>
-<td>52</td>
-<td>329</td>
-<td>334</td>
-<td>319</td>
-<td>365</td>
-<td>277</td>
-</tr>
-<tr class="odd">
-<td><em>State Strike</em></td>
-<td>209</td>
-<td>248</td>
-<td>4</td>
-<td>221</td>
-<td>24</td>
-<td>107</td>
-<td>76</td>
-<td>33</td>
-<td>304</td>
-<td>147</td>
-<td>10</td>
-<td>107</td>
-<td>87</td>
-<td>81</td>
-<td>109</td>
-<td>77</td>
-</tr>
-<tr class="even">
-<td><em>Defense Strike</em></td>
-<td>210</td>
-<td>280</td>
-<td>3</td>
-<td>356</td>
-<td>16</td>
-<td>46</td>
-<td>46</td>
-<td>29</td>
-<td>353</td>
-<td>123</td>
-<td>17</td>
-<td>67</td>
-<td>71</td>
-<td>113</td>
-<td>149</td>
-<td>93</td>
-</tr>
-<tr class="odd">
-<td><em># on Jury</em></td>
-<td>337</td>
-<td>388</td>
-<td>8</td>
-<td>407</td>
-<td>36</td>
-<td>131</td>
-<td>115</td>
-<td>44</td>
-<td>494</td>
-<td>215</td>
-<td>23</td>
-<td>133</td>
-<td>125</td>
-<td>163</td>
-<td>193</td>
-<td>119</td>
-</tr>
-</tbody>
-</table>
+<div class="section level2">
+<h2 id="counts-by-race">Counts by Race<a class="anchor" aria-label="anchor" href="#counts-by-race"></a>
+</h2>
+<div class="section level3">
+<h3 id="venire">Venire<a class="anchor" aria-label="anchor" href="#venire"></a>
+</h3>
+<pre><code><span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 6 × 2</span></span></span>
+<span><span class="co">#&gt;   Race            Jurors</span></span>
+<span><span class="co">#&gt;   <span style="color: #949494; font-style: italic;">&lt;fct&gt;</span>            <span style="color: #949494; font-style: italic;">&lt;int&gt;</span></span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">1</span> Black              605</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">2</span> Hispanic           639</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">3</span> White             <span style="text-decoration: underline;">1</span>648</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">4</span> Asian              200</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">5</span> Other              195</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">6</span> Native American     13</span></span></code></pre>
+</div>
+<div class="section level3">
+<h3 id="bullpen">Bullpen<a class="anchor" aria-label="anchor" href="#bullpen"></a>
+</h3>
+<p>Bullpen contains potential jurors who were not disqualified nor given an exemption. Due to the small number who identified as “Native American”, those were combined with “Other” when creating the <code>bullpen</code> dataset.</p>
+<pre><code><span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 5 × 2</span></span></span>
+<span><span class="co">#&gt;   Race     Jurors</span></span>
+<span><span class="co">#&gt;   <span style="color: #949494; font-style: italic;">&lt;fct&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;int&gt;</span></span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">1</span> Black       597</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">2</span> Hispanic    543</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">3</span> White      <span style="text-decoration: underline;">1</span>634</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">4</span> Asian       157</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">5</span> Other       197</span></span></code></pre>
+</div>
+</div>
+<div class="section level2">
+<h2 id="caused">Caused<a class="anchor" aria-label="anchor" href="#caused"></a>
+</h2>
+<div class="section level3">
+<h3 id="by-race">By Race<a class="anchor" aria-label="anchor" href="#by-race"></a>
+</h3>
+<pre><code><span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 5 × 2</span></span></span>
+<span><span class="co">#&gt;   Race     Jurors</span></span>
+<span><span class="co">#&gt;   <span style="color: #949494; font-style: italic;">&lt;fct&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;int&gt;</span></span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">1</span> Black       316</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">2</span> Hispanic    302</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">3</span> White       675</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">4</span> Asian        82</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">5</span> Other        93</span></span></code></pre>
+</div>
+<div class="section level3">
+<h3 id="by-gender">By Gender<a class="anchor" aria-label="anchor" href="#by-gender"></a>
+</h3>
+<pre><code><span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 3 × 2</span></span></span>
+<span><span class="co">#&gt;   Gender Jurors</span></span>
+<span><span class="co">#&gt;   <span style="color: #949494; font-style: italic;">&lt;fct&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;int&gt;</span></span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">1</span> Female    754</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">2</span> Male      688</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">3</span> Other      26</span></span></code></pre>
+</div>
+<div class="section level3">
+<h3 id="by-age">By Age<a class="anchor" aria-label="anchor" href="#by-age"></a>
+</h3>
+<pre><code><span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 4 × 2</span></span></span>
+<span><span class="co">#&gt;   Age     Jurors</span></span>
+<span><span class="co">#&gt;   <span style="color: #949494; font-style: italic;">&lt;fct&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;int&gt;</span></span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">1</span> 18 - 30    295</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">2</span> 31 - 44    445</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">3</span> 45 - 54    277</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">4</span> 55 +       451</span></span></code></pre>
+</div>
+<div class="section level3">
+<h3 id="by-i-30">By I-30<a class="anchor" aria-label="anchor" href="#by-i-30"></a>
+</h3>
+<pre><code><span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 3 × 2</span></span></span>
+<span><span class="co">#&gt;   `I-30` Jurors</span></span>
+<span><span class="co">#&gt;   <span style="color: #949494; font-style: italic;">&lt;fct&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;int&gt;</span></span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">1</span> South     488</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">2</span> North     928</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">3</span> Split      52</span></span></code></pre>
+</div>
+</div>
+<div class="section level2">
+<h2 id="jurors-dismissed-through-peremptory-challenges-by-state">Jurors Dismissed Through Peremptory Challenges by State<a class="anchor" aria-label="anchor" href="#jurors-dismissed-through-peremptory-challenges-by-state"></a>
+</h2>
+<div class="section level3">
+<h3 id="by-race-1">By Race<a class="anchor" aria-label="anchor" href="#by-race-1"></a>
+</h3>
+<pre><code><span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 5 × 2</span></span></span>
+<span><span class="co">#&gt;   Race     Jurors</span></span>
+<span><span class="co">#&gt;   <span style="color: #949494; font-style: italic;">&lt;fct&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;int&gt;</span></span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">1</span> Black       107</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">2</span> Hispanic     76</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">3</span> White       221</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">4</span> Asian        24</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">5</span> Other        33</span></span></code></pre>
+</div>
+<div class="section level3">
+<h3 id="by-gender-1">By Gender<a class="anchor" aria-label="anchor" href="#by-gender-1"></a>
+</h3>
+<pre><code><span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 3 × 2</span></span></span>
+<span><span class="co">#&gt;   Gender Jurors</span></span>
+<span><span class="co">#&gt;   <span style="color: #949494; font-style: italic;">&lt;fct&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;int&gt;</span></span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">1</span> Female    248</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">2</span> Male      209</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">3</span> Other       4</span></span></code></pre>
+</div>
+<div class="section level3">
+<h3 id="by-age-1">By Age<a class="anchor" aria-label="anchor" href="#by-age-1"></a>
+</h3>
+<pre><code><span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 4 × 2</span></span></span>
+<span><span class="co">#&gt;   Age     Jurors</span></span>
+<span><span class="co">#&gt;   <span style="color: #949494; font-style: italic;">&lt;fct&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;int&gt;</span></span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">1</span> 18 - 30     98</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">2</span> 31 - 44    128</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">3</span> 45 - 54     92</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">4</span> 55 +       143</span></span></code></pre>
+</div>
+<div class="section level3">
+<h3 id="by-i-30-1">By I-30<a class="anchor" aria-label="anchor" href="#by-i-30-1"></a>
+</h3>
+<pre><code><span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 3 × 2</span></span></span>
+<span><span class="co">#&gt;   `I-30` Jurors</span></span>
+<span><span class="co">#&gt;   <span style="color: #949494; font-style: italic;">&lt;fct&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;int&gt;</span></span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">1</span> South     147</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">2</span> North     304</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">3</span> Split      10</span></span></code></pre>
+</div>
+</div>
+<div class="section level2">
+<h2 id="jurors-dismissed-through-peremptory-challenges-by-defense">Jurors Dismissed Through Peremptory Challenges by Defense<a class="anchor" aria-label="anchor" href="#jurors-dismissed-through-peremptory-challenges-by-defense"></a>
+</h2>
+<div class="section level3">
+<h3 id="by-race-2">By Race<a class="anchor" aria-label="anchor" href="#by-race-2"></a>
+</h3>
+<pre><code><span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 5 × 2</span></span></span>
+<span><span class="co">#&gt;   Race     Jurors</span></span>
+<span><span class="co">#&gt;   <span style="color: #949494; font-style: italic;">&lt;fct&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;int&gt;</span></span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">1</span> Black        46</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">2</span> Hispanic     46</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">3</span> White       356</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">4</span> Asian        16</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">5</span> Other        29</span></span></code></pre>
+</div>
+<div class="section level3">
+<h3 id="by-gender-2">By Gender<a class="anchor" aria-label="anchor" href="#by-gender-2"></a>
+</h3>
+<pre><code><span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 3 × 2</span></span></span>
+<span><span class="co">#&gt;   Gender Jurors</span></span>
+<span><span class="co">#&gt;   <span style="color: #949494; font-style: italic;">&lt;fct&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;int&gt;</span></span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">1</span> Female    280</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">2</span> Male      210</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">3</span> Other       3</span></span></code></pre>
+</div>
+<div class="section level3">
+<h3 id="by-age-2">By Age<a class="anchor" aria-label="anchor" href="#by-age-2"></a>
+</h3>
+<pre><code><span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 4 × 2</span></span></span>
+<span><span class="co">#&gt;   Age     Jurors</span></span>
+<span><span class="co">#&gt;   <span style="color: #949494; font-style: italic;">&lt;fct&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;int&gt;</span></span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">1</span> 18 - 30     60</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">2</span> 31 - 44    110</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">3</span> 45 - 54    145</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">4</span> 55 +       178</span></span></code></pre>
+</div>
+<div class="section level3">
+<h3 id="by-i-30-2">By I-30<a class="anchor" aria-label="anchor" href="#by-i-30-2"></a>
+</h3>
+<pre><code><span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 3 × 2</span></span></span>
+<span><span class="co">#&gt;   `I-30` Jurors</span></span>
+<span><span class="co">#&gt;   <span style="color: #949494; font-style: italic;">&lt;fct&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;int&gt;</span></span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">1</span> South     123</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">2</span> North     353</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">3</span> Split      17</span></span></code></pre>
+</div>
+</div>
+<div class="section level2">
+<h2 id="averages-per-trial">Averages per Trial<a class="anchor" aria-label="anchor" href="#averages-per-trial"></a>
+</h2>
+<div class="section level3">
+<h3 id="by-race-3">By Race<a class="anchor" aria-label="anchor" href="#by-race-3"></a>
+</h3>
+<pre><code><span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 5 × 2</span></span></span>
+<span><span class="co">#&gt;   Race     `Avg. # Jurors`</span></span>
+<span><span class="co">#&gt;   <span style="color: #949494; font-style: italic;">&lt;fct&gt;</span>              <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">1</span> Black               2.91</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">2</span> Hispanic            2.95</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">3</span> White               8.48</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">4</span> Asian               1.38</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">5</span> Other               1.91</span></span></code></pre>
+</div>
+<div class="section level3">
+<h3 id="by-gender-3">By Gender<a class="anchor" aria-label="anchor" href="#by-gender-3"></a>
+</h3>
+<pre><code><span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 3 × 2</span></span></span>
+<span><span class="co">#&gt;   Gender `Avg. # Jurors`</span></span>
+<span><span class="co">#&gt;   <span style="color: #949494; font-style: italic;">&lt;fct&gt;</span>            <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">1</span> Female            8.08</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">2</span> Male              7.02</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">3</span> Other             1.14</span></span></code></pre>
+</div>
+<div class="section level3">
+<h3 id="by-age-3">By Age<a class="anchor" aria-label="anchor" href="#by-age-3"></a>
+</h3>
+<pre><code><span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 4 × 2</span></span></span>
+<span><span class="co">#&gt;   `Age Group` `Avg. # Jurors`</span></span>
+<span><span class="co">#&gt;   <span style="color: #949494; font-style: italic;">&lt;fct&gt;</span>                 <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">1</span> 18 - 30                2.55</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">2</span> 31 - 44                4.22</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">3</span> 45 - 54                4.06</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">4</span> 55 +                   4.83</span></span></code></pre>
+</div>
+<div class="section level3">
+<h3 id="by-i-30-3">By I-30<a class="anchor" aria-label="anchor" href="#by-i-30-3"></a>
+</h3>
+<pre><code><span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 4 × 2</span></span></span>
+<span><span class="co">#&gt;   `I-30` `Avg. # Jurors`</span></span>
+<span><span class="co">#&gt;   <span style="color: #949494; font-style: italic;">&lt;fct&gt;</span>            <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">1</span> South             4.48</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">2</span> North            10.3 </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">3</span> Split             1.28</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">4</span> <span style="color: #BB0000;">NA</span>                1</span></span></code></pre>
+<p>The missing data point comes from a data entry error with the zip code for one juror.</p>
 <p>The specific reason for the highest occurring causes for each column.</p>
-  </main>
+</div>
+</div>
+  </main><aside class="col-md-3"><nav id="toc"><h2>On this page</h2>
+    </nav></aside>
 </div>
 
 
