@@ -93,6 +93,7 @@
 <div class="section level3">
 <h3 id="venire">Venire<a class="anchor" aria-label="anchor" href="#venire"></a>
 </h3>
+<p>The <code>venire</code> dataset contains all of the potential jurors who showed up at the courthouse on the day of their jury summons.</p>
 <pre><code><span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 6 × 2</span></span></span>
 <span><span class="co">#&gt;   Race            Jurors</span></span>
 <span><span class="co">#&gt;   <span style="color: #949494; font-style: italic;">&lt;fct&gt;</span>            <span style="color: #949494; font-style: italic;">&lt;int&gt;</span></span></span>
@@ -106,7 +107,8 @@
 <div class="section level3">
 <h3 id="bullpen">Bullpen<a class="anchor" aria-label="anchor" href="#bullpen"></a>
 </h3>
-<p>Bullpen contains potential jurors who were not disqualified nor given an exemption. Due to the small number who identified as “Native American”, those were combined with “Other” when creating the <code>bullpen</code> dataset.</p>
+<p>Before beginning the questioning of potential jurors, the Court ensures that everyone is eligible to serve and should not be disqualified or afforded an exemption. Once those individuals have been identified and dismissed, the remaining potential jurors can be found in the <code>bullpen</code> dataset.</p>
+<p>For race, due to the small number who identified as “Native American”, those were combined with “Other” for the remaining analyses.</p>
 <pre><code><span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 5 × 2</span></span></span>
 <span><span class="co">#&gt;   Race     Jurors</span></span>
 <span><span class="co">#&gt;   <span style="color: #949494; font-style: italic;">&lt;fct&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;int&gt;</span></span></span>
