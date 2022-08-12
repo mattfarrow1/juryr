@@ -20,6 +20,8 @@ library(juryR)
 
 ### Venire
 
+The `venire` dataset contains all of the potential jurors who showed up at the courthouse on the day of their jury summons. 
+
 ```{r echo=FALSE}
 venire |> 
   count(jur_race) |> 
@@ -29,7 +31,9 @@ venire |>
 
 ### Bullpen
 
-Bullpen contains potential jurors who were not disqualified nor given an exemption. Due to the small number who identified as "Native American", those were combined with "Other" when creating the `bullpen` dataset.
+Before beginning the questioning of potential jurors, the Court ensures that everyone is eligible to serve and should not be disqualified or afforded an exemption. Once those individuals have been identified and dismissed, the remaining potential jurors can be found in the `bullpen` dataset. 
+
+For race, due to the small number who identified as "Native American", those were combined with "Other" for the remaining analyses.
 
 ```{r echo=FALSE}
 bullpen |> 
