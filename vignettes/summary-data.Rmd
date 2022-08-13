@@ -16,11 +16,21 @@ library(dplyr)
 library(juryR)
 ```
 
-## Counts by Race
+## Venire Dataset
 
-### Venire
+The `venire` dataset contains all of the potential jurors who showed up at the courthouse on the day of their jury summons.
 
-The `venire` dataset contains all of the potential jurors who showed up at the courthouse on the day of their jury summons. 
+### All Individuals {.tabset}
+
+#### Overall Count
+
+```{r}
+venire |> 
+  count() |> 
+  rename(Individuals = "n")
+```
+
+#### Counts by Race
 
 ```{r echo=FALSE}
 venire |> 
@@ -29,22 +39,71 @@ venire |>
          Jurors = "n")
 ```
 
-### Bullpen
+#### Counts by Gender
 
-Before beginning the questioning of potential jurors, the Court ensures that everyone is eligible to serve and should not be disqualified or afforded an exemption. Once those individuals have been identified and dismissed, the remaining potential jurors can be found in the `bullpen` dataset. 
+```{r echo=FALSE}
+venire |> 
+  count(jur_gend) |> 
+  rename(Gender = "jur_gend",
+         Jurors = "n")
+```
+
+#### Counts by Age Group
+
+```{r echo=FALSE}
+venire |> 
+  count(age_group) |> 
+  rename(`Age Group` = "age_group",
+         Jurors = "n")
+```
+
+### Disqualified {.tabset}
+
+Before proceeding to juror questioning, the Court determines whether any potential jurors should be disqualified.
+
+#### Counts by Race
+
+```{r echo=FALSE}
+venire |> 
+  filter(jur_disqualified == "Yes") |> 
+  count(jur_race) |> 
+  rename(Race = "jur_race",
+         Jurors = "n")
+```
+
+#### Counts by Gender
+
+```{r echo=FALSE}
+venire |> 
+  filter(jur_disqualified == "Yes") |> 
+  count(jur_gend) |> 
+  rename(Gender = "jur_gend",
+         Jurors = "n")
+```
+
+#### Counts by Age Group
+
+```{r echo=FALSE}
+venire |> 
+  filter(jur_disqualified == "Yes") |> 
+  count(age_group) |> 
+  rename(`Age Group` = "age_group",
+         Jurors = "n")
+```
+
+## `bullpen` Dataset
+
+Before beginning the questioning of potential jurors, the Court ensures that everyone is eligible to serve and should not be disqualified. Once those individuals have been identified and dismissed, the remaining potential jurors can be found in the `bullpen` dataset.
 
 For race, due to the small number who identified as "Native American", those were combined with "Other" for the remaining analyses.
 
-```{r echo=FALSE}
-bullpen |> 
-  count(jur_race) |> 
-  rename(Race = "jur_race",
-         Jurors = "n")
-```
+**A Note About Manually Tallying Numbers**
 
-## Caused
+*It is possible that numbers may not add up to their parent totals. For example, a potential juror might be peremptory challenged by both the State and the Defense leading the individual counts to be greater than the single total of all challenges.*
 
-### By Race
+### Caused {.tabset}
+
+#### By Race
 
 ```{r echo=FALSE}
 bullpen |> 
@@ -54,7 +113,7 @@ bullpen |>
          Jurors = "n")
 ```
 
-### By Gender
+#### By Gender
 
 ```{r echo=FALSE}
 bullpen |> 
@@ -64,7 +123,7 @@ bullpen |>
          Jurors = "n")
 ```
 
-### By Age
+#### By Age
 
 ```{r echo=FALSE}
 bullpen |> 
@@ -74,7 +133,7 @@ bullpen |>
          Jurors = "n")
 ```
 
-### By I-30
+#### By I-30
 
 ```{r echo=FALSE}
 bullpen |> 
@@ -84,9 +143,9 @@ bullpen |>
          Jurors = "n")
 ```
 
-## Jurors Dismissed Through Peremptory Challenges by State
+### Jurors Dismissed Through Peremptory Challenges by State  {.tabset}
 
-### By Race
+#### By Race
 
 ```{r echo=FALSE}
 bullpen |> 
@@ -96,7 +155,7 @@ bullpen |>
          Jurors = "n")
 ```
 
-### By Gender
+#### By Gender
 
 ```{r echo=FALSE}
 bullpen |> 
@@ -106,7 +165,7 @@ bullpen |>
          Jurors = "n")
 ```
 
-### By Age
+#### By Age
 
 ```{r echo=FALSE}
 bullpen |> 
@@ -116,7 +175,7 @@ bullpen |>
          Jurors = "n")
 ```
 
-### By I-30
+#### By I-30
 
 ```{r echo=FALSE}
 bullpen |> 
@@ -126,9 +185,9 @@ bullpen |>
          Jurors = "n")
 ```
 
-## Jurors Dismissed Through Peremptory Challenges by Defense
+### Jurors Dismissed Through Peremptory Challenges by Defense  {.tabset}
 
-### By Race
+#### By Race
 
 ```{r echo=FALSE}
 bullpen |> 
@@ -138,7 +197,7 @@ bullpen |>
          Jurors = "n")
 ```
 
-### By Gender
+#### By Gender
 
 ```{r echo=FALSE}
 bullpen |> 
@@ -148,7 +207,7 @@ bullpen |>
          Jurors = "n")
 ```
 
-### By Age
+#### By Age
 
 ```{r echo=FALSE}
 bullpen |> 
@@ -158,7 +217,7 @@ bullpen |>
          Jurors = "n")
 ```
 
-### By I-30
+#### By I-30
 
 ```{r echo=FALSE}
 bullpen |> 
@@ -168,9 +227,9 @@ bullpen |>
          Jurors = "n")
 ```
 
-## Averages per Trial
+### Averages per Trial  {.tabset}
 
-### By Race
+#### By Race
 
 ```{r echo=FALSE}
 bullpen |> 
@@ -182,7 +241,7 @@ bullpen |>
          `Avg. # Jurors` = `round(mean(n), 2)`)
 ```
 
-### By Gender
+#### By Gender
 
 ```{r echo=FALSE}
 bullpen |> 
@@ -194,7 +253,7 @@ bullpen |>
          `Avg. # Jurors` = `round(mean(n), 2)`)
 ```
 
-### By Age
+#### By Age
 
 ```{r echo=FALSE}
 bullpen |> 
@@ -206,7 +265,7 @@ bullpen |>
          `Avg. # Jurors` = `round(mean(n), 2)`)
 ```
 
-### By I-30
+#### By I-30
 
 ```{r echo=FALSE}
 bullpen |> 
