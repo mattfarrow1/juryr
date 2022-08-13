@@ -88,12 +88,36 @@
     
     
 <div class="section level2">
-<h2 id="counts-by-race">Counts by Race<a class="anchor" aria-label="anchor" href="#counts-by-race"></a>
+<h2 id="venire-dataset">Venire Dataset<a class="anchor" aria-label="anchor" href="#venire-dataset"></a>
 </h2>
-<div class="section level3">
-<h3 id="venire">Venire<a class="anchor" aria-label="anchor" href="#venire"></a>
-</h3>
 <p>The <code>venire</code> dataset contains all of the potential jurors who showed up at the courthouse on the day of their jury summons.</p>
+<div class="section level3 tabset">
+<h3 class="tabset" id="all-individuals">All Individuals<a class="anchor" aria-label="anchor" href="#all-individuals"></a>
+</h3>
+
+
+
+
+<ul class="nav nav-tabs" id="all-individuals" role="tablist">
+<li role="presentation" class="nav-item"><button data-bs-toggle="tab" data-bs-target="#overall-count" id="overall-count-tab" type="button" role="tab" aria-controls="overall-count" aria-selected="true" class="active nav-link">Overall Count</button></li>
+<li role="presentation" class="nav-item"><button data-bs-toggle="tab" data-bs-target="#counts-by-race" id="counts-by-race-tab" type="button" role="tab" aria-controls="counts-by-race" aria-selected="false" class="nav-link">Counts by Race</button></li>
+<li role="presentation" class="nav-item"><button data-bs-toggle="tab" data-bs-target="#counts-by-gender" id="counts-by-gender-tab" type="button" role="tab" aria-controls="counts-by-gender" aria-selected="false" class="nav-link">Counts by Gender</button></li>
+<li role="presentation" class="nav-item"><button data-bs-toggle="tab" data-bs-target="#counts-by-age-group" id="counts-by-age-group-tab" type="button" role="tab" aria-controls="counts-by-age-group" aria-selected="false" class="nav-link">Counts by Age Group</button></li>
+</ul>
+<div class="tab-content">
+<div class="active  tab-pane" id="overall-count" role="tabpanel" aria-labelledby="overall-count-tab">
+
+<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">venire</span> <span class="op">|&gt;</span> </span>
+<span>  <span class="fu">count</span><span class="op">(</span><span class="op">)</span> <span class="op">|&gt;</span> </span>
+<span>  <span class="fu">rename</span><span class="op">(</span>Individuals <span class="op">=</span> <span class="st">"n"</span><span class="op">)</span></span>
+<span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 1 × 1</span></span></span>
+<span><span class="co">#&gt;   Individuals</span></span>
+<span><span class="co">#&gt;         <span style="color: #949494; font-style: italic;">&lt;int&gt;</span></span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">1</span>        <span style="text-decoration: underline;">3</span>300</span></span></code></pre></div>
+</div>
+<div class="tab-pane" id="counts-by-race" role="tabpanel" aria-labelledby="counts-by-race-tab">
+
 <pre><code><span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 6 × 2</span></span></span>
 <span><span class="co">#&gt;   Race            Jurors</span></span>
 <span><span class="co">#&gt;   <span style="color: #949494; font-style: italic;">&lt;fct&gt;</span>            <span style="color: #949494; font-style: italic;">&lt;int&gt;</span></span></span>
@@ -104,27 +128,97 @@
 <span><span class="co">#&gt; <span style="color: #BCBCBC;">5</span> Other              195</span></span>
 <span><span class="co">#&gt; <span style="color: #BCBCBC;">6</span> Native American     13</span></span></code></pre>
 </div>
-<div class="section level3">
-<h3 id="bullpen">Bullpen<a class="anchor" aria-label="anchor" href="#bullpen"></a>
+<div class="tab-pane" id="counts-by-gender" role="tabpanel" aria-labelledby="counts-by-gender-tab">
+
+<pre><code><span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 3 × 2</span></span></span>
+<span><span class="co">#&gt;   Gender Jurors</span></span>
+<span><span class="co">#&gt;   <span style="color: #949494; font-style: italic;">&lt;fct&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;int&gt;</span></span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">1</span> Female   <span style="text-decoration: underline;">1</span>739</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">2</span> Male     <span style="text-decoration: underline;">1</span>510</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">3</span> Other      51</span></span></code></pre>
+</div>
+<div class="tab-pane" id="counts-by-age-group" role="tabpanel" aria-labelledby="counts-by-age-group-tab">
+
+<pre><code><span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 4 × 2</span></span></span>
+<span><span class="co">#&gt;   `Age Group` Jurors</span></span>
+<span><span class="co">#&gt;   <span style="color: #949494; font-style: italic;">&lt;fct&gt;</span>        <span style="color: #949494; font-style: italic;">&lt;int&gt;</span></span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">1</span> 18 - 30        580</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">2</span> 31 - 44        911</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">3</span> 45 - 54        742</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">4</span> 55 +          <span style="text-decoration: underline;">1</span>067</span></span></code></pre>
+</div>
+</div>
+</div>
+<div class="section level3 tabset">
+<h3 class="tabset" id="disqualified">Disqualified<a class="anchor" aria-label="anchor" href="#disqualified"></a>
 </h3>
-<p>Before beginning the questioning of potential jurors, the Court ensures that everyone is eligible to serve and should not be disqualified or afforded an exemption. Once those individuals have been identified and dismissed, the remaining potential jurors can be found in the <code>bullpen</code> dataset.</p>
-<p>For race, due to the small number who identified as “Native American”, those were combined with “Other” for the remaining analyses.</p>
+<p>Before proceeding to juror questioning, the Court determines whether any potential jurors should be disqualified.</p>
+
+
+
+<ul class="nav nav-tabs" id="disqualified" role="tablist">
+<li role="presentation" class="nav-item"><button data-bs-toggle="tab" data-bs-target="#counts-by-race-1" id="counts-by-race-1-tab" type="button" role="tab" aria-controls="counts-by-race-1" aria-selected="true" class="active nav-link">Counts by Race</button></li>
+<li role="presentation" class="nav-item"><button data-bs-toggle="tab" data-bs-target="#counts-by-gender-1" id="counts-by-gender-1-tab" type="button" role="tab" aria-controls="counts-by-gender-1" aria-selected="false" class="nav-link">Counts by Gender</button></li>
+<li role="presentation" class="nav-item"><button data-bs-toggle="tab" data-bs-target="#counts-by-age-group-1" id="counts-by-age-group-1-tab" type="button" role="tab" aria-controls="counts-by-age-group-1" aria-selected="false" class="nav-link">Counts by Age Group</button></li>
+</ul>
+<div class="tab-content">
+<div class="active  tab-pane" id="counts-by-race-1" role="tabpanel" aria-labelledby="counts-by-race-1-tab">
+
 <pre><code><span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 5 × 2</span></span></span>
 <span><span class="co">#&gt;   Race     Jurors</span></span>
 <span><span class="co">#&gt;   <span style="color: #949494; font-style: italic;">&lt;fct&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;int&gt;</span></span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">1</span> Black       597</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">2</span> Hispanic    543</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">3</span> White      <span style="text-decoration: underline;">1</span>634</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">4</span> Asian       157</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">5</span> Other       197</span></span></code></pre>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">1</span> Black         8</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">2</span> Hispanic     96</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">3</span> White        14</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">4</span> Asian        43</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">5</span> Other        11</span></span></code></pre>
+</div>
+<div class="tab-pane" id="counts-by-gender-1" role="tabpanel" aria-labelledby="counts-by-gender-1-tab">
+
+<pre><code><span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 3 × 2</span></span></span>
+<span><span class="co">#&gt;   Gender Jurors</span></span>
+<span><span class="co">#&gt;   <span style="color: #949494; font-style: italic;">&lt;fct&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;int&gt;</span></span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">1</span> Female     88</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">2</span> Male       74</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">3</span> Other      10</span></span></code></pre>
+</div>
+<div class="tab-pane" id="counts-by-age-group-1" role="tabpanel" aria-labelledby="counts-by-age-group-1-tab">
+
+<pre><code><span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 4 × 2</span></span></span>
+<span><span class="co">#&gt;   `Age Group` Jurors</span></span>
+<span><span class="co">#&gt;   <span style="color: #949494; font-style: italic;">&lt;fct&gt;</span>        <span style="color: #949494; font-style: italic;">&lt;int&gt;</span></span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">1</span> 18 - 30          8</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">2</span> 31 - 44         40</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">3</span> 45 - 54         55</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">4</span> 55 +            69</span></span></code></pre>
+</div>
+</div>
 </div>
 </div>
 <div class="section level2">
-<h2 id="caused">Caused<a class="anchor" aria-label="anchor" href="#caused"></a>
+<h2 id="bullpen-dataset">
+<code>bullpen</code> Dataset<a class="anchor" aria-label="anchor" href="#bullpen-dataset"></a>
 </h2>
-<div class="section level3">
-<h3 id="by-race">By Race<a class="anchor" aria-label="anchor" href="#by-race"></a>
+<p>Before beginning the questioning of potential jurors, the Court ensures that everyone is eligible to serve and should not be disqualified. Once those individuals have been identified and dismissed, the remaining potential jurors can be found in the <code>bullpen</code> dataset.</p>
+<p>For race, due to the small number who identified as “Native American”, those were combined with “Other” for the remaining analyses.</p>
+<p><strong>A Note About Manually Tallying Numbers</strong></p>
+<p><em>It is possible that numbers may not add up to their parent totals. For example, a potential juror might be peremptory challenged by both the State and the Defense leading the individual counts to be greater than the single total of all challenges.</em></p>
+<div class="section level3 tabset">
+<h3 class="tabset" id="caused">Caused<a class="anchor" aria-label="anchor" href="#caused"></a>
 </h3>
+
+
+
+
+<ul class="nav nav-tabs" id="caused" role="tablist">
+<li role="presentation" class="nav-item"><button data-bs-toggle="tab" data-bs-target="#by-race" id="by-race-tab" type="button" role="tab" aria-controls="by-race" aria-selected="true" class="active nav-link">By Race</button></li>
+<li role="presentation" class="nav-item"><button data-bs-toggle="tab" data-bs-target="#by-gender" id="by-gender-tab" type="button" role="tab" aria-controls="by-gender" aria-selected="false" class="nav-link">By Gender</button></li>
+<li role="presentation" class="nav-item"><button data-bs-toggle="tab" data-bs-target="#by-age" id="by-age-tab" type="button" role="tab" aria-controls="by-age" aria-selected="false" class="nav-link">By Age</button></li>
+<li role="presentation" class="nav-item"><button data-bs-toggle="tab" data-bs-target="#by-i-30" id="by-i-30-tab" type="button" role="tab" aria-controls="by-i-30" aria-selected="false" class="nav-link">By I-30</button></li>
+</ul>
+<div class="tab-content">
+<div class="active  tab-pane" id="by-race" role="tabpanel" aria-labelledby="by-race-tab">
+
 <pre><code><span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 5 × 2</span></span></span>
 <span><span class="co">#&gt;   Race     Jurors</span></span>
 <span><span class="co">#&gt;   <span style="color: #949494; font-style: italic;">&lt;fct&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;int&gt;</span></span></span>
@@ -134,9 +228,8 @@
 <span><span class="co">#&gt; <span style="color: #BCBCBC;">4</span> Asian        82</span></span>
 <span><span class="co">#&gt; <span style="color: #BCBCBC;">5</span> Other        93</span></span></code></pre>
 </div>
-<div class="section level3">
-<h3 id="by-gender">By Gender<a class="anchor" aria-label="anchor" href="#by-gender"></a>
-</h3>
+<div class="tab-pane" id="by-gender" role="tabpanel" aria-labelledby="by-gender-tab">
+
 <pre><code><span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 3 × 2</span></span></span>
 <span><span class="co">#&gt;   Gender Jurors</span></span>
 <span><span class="co">#&gt;   <span style="color: #949494; font-style: italic;">&lt;fct&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;int&gt;</span></span></span>
@@ -144,9 +237,8 @@
 <span><span class="co">#&gt; <span style="color: #BCBCBC;">2</span> Male      688</span></span>
 <span><span class="co">#&gt; <span style="color: #BCBCBC;">3</span> Other      26</span></span></code></pre>
 </div>
-<div class="section level3">
-<h3 id="by-age">By Age<a class="anchor" aria-label="anchor" href="#by-age"></a>
-</h3>
+<div class="tab-pane" id="by-age" role="tabpanel" aria-labelledby="by-age-tab">
+
 <pre><code><span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 4 × 2</span></span></span>
 <span><span class="co">#&gt;   Age     Jurors</span></span>
 <span><span class="co">#&gt;   <span style="color: #949494; font-style: italic;">&lt;fct&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;int&gt;</span></span></span>
@@ -155,9 +247,8 @@
 <span><span class="co">#&gt; <span style="color: #BCBCBC;">3</span> 45 - 54    277</span></span>
 <span><span class="co">#&gt; <span style="color: #BCBCBC;">4</span> 55 +       451</span></span></code></pre>
 </div>
-<div class="section level3">
-<h3 id="by-i-30">By I-30<a class="anchor" aria-label="anchor" href="#by-i-30"></a>
-</h3>
+<div class="tab-pane" id="by-i-30" role="tabpanel" aria-labelledby="by-i-30-tab">
+
 <pre><code><span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 3 × 2</span></span></span>
 <span><span class="co">#&gt;   `I-30` Jurors</span></span>
 <span><span class="co">#&gt;   <span style="color: #949494; font-style: italic;">&lt;fct&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;int&gt;</span></span></span>
@@ -166,12 +257,23 @@
 <span><span class="co">#&gt; <span style="color: #BCBCBC;">3</span> Split      52</span></span></code></pre>
 </div>
 </div>
-<div class="section level2">
-<h2 id="jurors-dismissed-through-peremptory-challenges-by-state">Jurors Dismissed Through Peremptory Challenges by State<a class="anchor" aria-label="anchor" href="#jurors-dismissed-through-peremptory-challenges-by-state"></a>
-</h2>
-<div class="section level3">
-<h3 id="by-race-1">By Race<a class="anchor" aria-label="anchor" href="#by-race-1"></a>
+</div>
+<div class="section level3 tabset">
+<h3 class="tabset" id="jurors-dismissed-through-peremptory-challenges-by-state">Jurors Dismissed Through Peremptory Challenges by State<a class="anchor" aria-label="anchor" href="#jurors-dismissed-through-peremptory-challenges-by-state"></a>
 </h3>
+
+
+
+
+<ul class="nav nav-tabs" id="jurors-dismissed-through-peremptory-challenges-by-state" role="tablist">
+<li role="presentation" class="nav-item"><button data-bs-toggle="tab" data-bs-target="#by-race-1" id="by-race-1-tab" type="button" role="tab" aria-controls="by-race-1" aria-selected="true" class="active nav-link">By Race</button></li>
+<li role="presentation" class="nav-item"><button data-bs-toggle="tab" data-bs-target="#by-gender-1" id="by-gender-1-tab" type="button" role="tab" aria-controls="by-gender-1" aria-selected="false" class="nav-link">By Gender</button></li>
+<li role="presentation" class="nav-item"><button data-bs-toggle="tab" data-bs-target="#by-age-1" id="by-age-1-tab" type="button" role="tab" aria-controls="by-age-1" aria-selected="false" class="nav-link">By Age</button></li>
+<li role="presentation" class="nav-item"><button data-bs-toggle="tab" data-bs-target="#by-i-30-1" id="by-i-30-1-tab" type="button" role="tab" aria-controls="by-i-30-1" aria-selected="false" class="nav-link">By I-30</button></li>
+</ul>
+<div class="tab-content">
+<div class="active  tab-pane" id="by-race-1" role="tabpanel" aria-labelledby="by-race-1-tab">
+
 <pre><code><span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 5 × 2</span></span></span>
 <span><span class="co">#&gt;   Race     Jurors</span></span>
 <span><span class="co">#&gt;   <span style="color: #949494; font-style: italic;">&lt;fct&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;int&gt;</span></span></span>
@@ -181,9 +283,8 @@
 <span><span class="co">#&gt; <span style="color: #BCBCBC;">4</span> Asian        24</span></span>
 <span><span class="co">#&gt; <span style="color: #BCBCBC;">5</span> Other        33</span></span></code></pre>
 </div>
-<div class="section level3">
-<h3 id="by-gender-1">By Gender<a class="anchor" aria-label="anchor" href="#by-gender-1"></a>
-</h3>
+<div class="tab-pane" id="by-gender-1" role="tabpanel" aria-labelledby="by-gender-1-tab">
+
 <pre><code><span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 3 × 2</span></span></span>
 <span><span class="co">#&gt;   Gender Jurors</span></span>
 <span><span class="co">#&gt;   <span style="color: #949494; font-style: italic;">&lt;fct&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;int&gt;</span></span></span>
@@ -191,9 +292,8 @@
 <span><span class="co">#&gt; <span style="color: #BCBCBC;">2</span> Male      209</span></span>
 <span><span class="co">#&gt; <span style="color: #BCBCBC;">3</span> Other       4</span></span></code></pre>
 </div>
-<div class="section level3">
-<h3 id="by-age-1">By Age<a class="anchor" aria-label="anchor" href="#by-age-1"></a>
-</h3>
+<div class="tab-pane" id="by-age-1" role="tabpanel" aria-labelledby="by-age-1-tab">
+
 <pre><code><span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 4 × 2</span></span></span>
 <span><span class="co">#&gt;   Age     Jurors</span></span>
 <span><span class="co">#&gt;   <span style="color: #949494; font-style: italic;">&lt;fct&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;int&gt;</span></span></span>
@@ -202,9 +302,8 @@
 <span><span class="co">#&gt; <span style="color: #BCBCBC;">3</span> 45 - 54     92</span></span>
 <span><span class="co">#&gt; <span style="color: #BCBCBC;">4</span> 55 +       143</span></span></code></pre>
 </div>
-<div class="section level3">
-<h3 id="by-i-30-1">By I-30<a class="anchor" aria-label="anchor" href="#by-i-30-1"></a>
-</h3>
+<div class="tab-pane" id="by-i-30-1" role="tabpanel" aria-labelledby="by-i-30-1-tab">
+
 <pre><code><span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 3 × 2</span></span></span>
 <span><span class="co">#&gt;   `I-30` Jurors</span></span>
 <span><span class="co">#&gt;   <span style="color: #949494; font-style: italic;">&lt;fct&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;int&gt;</span></span></span>
@@ -213,12 +312,23 @@
 <span><span class="co">#&gt; <span style="color: #BCBCBC;">3</span> Split      10</span></span></code></pre>
 </div>
 </div>
-<div class="section level2">
-<h2 id="jurors-dismissed-through-peremptory-challenges-by-defense">Jurors Dismissed Through Peremptory Challenges by Defense<a class="anchor" aria-label="anchor" href="#jurors-dismissed-through-peremptory-challenges-by-defense"></a>
-</h2>
-<div class="section level3">
-<h3 id="by-race-2">By Race<a class="anchor" aria-label="anchor" href="#by-race-2"></a>
+</div>
+<div class="section level3 tabset">
+<h3 class="tabset" id="jurors-dismissed-through-peremptory-challenges-by-defense">Jurors Dismissed Through Peremptory Challenges by Defense<a class="anchor" aria-label="anchor" href="#jurors-dismissed-through-peremptory-challenges-by-defense"></a>
 </h3>
+
+
+
+
+<ul class="nav nav-tabs" id="jurors-dismissed-through-peremptory-challenges-by-defense" role="tablist">
+<li role="presentation" class="nav-item"><button data-bs-toggle="tab" data-bs-target="#by-race-2" id="by-race-2-tab" type="button" role="tab" aria-controls="by-race-2" aria-selected="true" class="active nav-link">By Race</button></li>
+<li role="presentation" class="nav-item"><button data-bs-toggle="tab" data-bs-target="#by-gender-2" id="by-gender-2-tab" type="button" role="tab" aria-controls="by-gender-2" aria-selected="false" class="nav-link">By Gender</button></li>
+<li role="presentation" class="nav-item"><button data-bs-toggle="tab" data-bs-target="#by-age-2" id="by-age-2-tab" type="button" role="tab" aria-controls="by-age-2" aria-selected="false" class="nav-link">By Age</button></li>
+<li role="presentation" class="nav-item"><button data-bs-toggle="tab" data-bs-target="#by-i-30-2" id="by-i-30-2-tab" type="button" role="tab" aria-controls="by-i-30-2" aria-selected="false" class="nav-link">By I-30</button></li>
+</ul>
+<div class="tab-content">
+<div class="active  tab-pane" id="by-race-2" role="tabpanel" aria-labelledby="by-race-2-tab">
+
 <pre><code><span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 5 × 2</span></span></span>
 <span><span class="co">#&gt;   Race     Jurors</span></span>
 <span><span class="co">#&gt;   <span style="color: #949494; font-style: italic;">&lt;fct&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;int&gt;</span></span></span>
@@ -228,9 +338,8 @@
 <span><span class="co">#&gt; <span style="color: #BCBCBC;">4</span> Asian        16</span></span>
 <span><span class="co">#&gt; <span style="color: #BCBCBC;">5</span> Other        29</span></span></code></pre>
 </div>
-<div class="section level3">
-<h3 id="by-gender-2">By Gender<a class="anchor" aria-label="anchor" href="#by-gender-2"></a>
-</h3>
+<div class="tab-pane" id="by-gender-2" role="tabpanel" aria-labelledby="by-gender-2-tab">
+
 <pre><code><span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 3 × 2</span></span></span>
 <span><span class="co">#&gt;   Gender Jurors</span></span>
 <span><span class="co">#&gt;   <span style="color: #949494; font-style: italic;">&lt;fct&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;int&gt;</span></span></span>
@@ -238,9 +347,8 @@
 <span><span class="co">#&gt; <span style="color: #BCBCBC;">2</span> Male      210</span></span>
 <span><span class="co">#&gt; <span style="color: #BCBCBC;">3</span> Other       3</span></span></code></pre>
 </div>
-<div class="section level3">
-<h3 id="by-age-2">By Age<a class="anchor" aria-label="anchor" href="#by-age-2"></a>
-</h3>
+<div class="tab-pane" id="by-age-2" role="tabpanel" aria-labelledby="by-age-2-tab">
+
 <pre><code><span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 4 × 2</span></span></span>
 <span><span class="co">#&gt;   Age     Jurors</span></span>
 <span><span class="co">#&gt;   <span style="color: #949494; font-style: italic;">&lt;fct&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;int&gt;</span></span></span>
@@ -249,9 +357,8 @@
 <span><span class="co">#&gt; <span style="color: #BCBCBC;">3</span> 45 - 54    145</span></span>
 <span><span class="co">#&gt; <span style="color: #BCBCBC;">4</span> 55 +       178</span></span></code></pre>
 </div>
-<div class="section level3">
-<h3 id="by-i-30-2">By I-30<a class="anchor" aria-label="anchor" href="#by-i-30-2"></a>
-</h3>
+<div class="tab-pane" id="by-i-30-2" role="tabpanel" aria-labelledby="by-i-30-2-tab">
+
 <pre><code><span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 3 × 2</span></span></span>
 <span><span class="co">#&gt;   `I-30` Jurors</span></span>
 <span><span class="co">#&gt;   <span style="color: #949494; font-style: italic;">&lt;fct&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;int&gt;</span></span></span>
@@ -260,12 +367,23 @@
 <span><span class="co">#&gt; <span style="color: #BCBCBC;">3</span> Split      17</span></span></code></pre>
 </div>
 </div>
-<div class="section level2">
-<h2 id="averages-per-trial">Averages per Trial<a class="anchor" aria-label="anchor" href="#averages-per-trial"></a>
-</h2>
-<div class="section level3">
-<h3 id="by-race-3">By Race<a class="anchor" aria-label="anchor" href="#by-race-3"></a>
+</div>
+<div class="section level3 tabset">
+<h3 class="tabset" id="averages-per-trial">Averages per Trial<a class="anchor" aria-label="anchor" href="#averages-per-trial"></a>
 </h3>
+
+
+
+
+<ul class="nav nav-tabs" id="averages-per-trial" role="tablist">
+<li role="presentation" class="nav-item"><button data-bs-toggle="tab" data-bs-target="#by-race-3" id="by-race-3-tab" type="button" role="tab" aria-controls="by-race-3" aria-selected="true" class="active nav-link">By Race</button></li>
+<li role="presentation" class="nav-item"><button data-bs-toggle="tab" data-bs-target="#by-gender-3" id="by-gender-3-tab" type="button" role="tab" aria-controls="by-gender-3" aria-selected="false" class="nav-link">By Gender</button></li>
+<li role="presentation" class="nav-item"><button data-bs-toggle="tab" data-bs-target="#by-age-3" id="by-age-3-tab" type="button" role="tab" aria-controls="by-age-3" aria-selected="false" class="nav-link">By Age</button></li>
+<li role="presentation" class="nav-item"><button data-bs-toggle="tab" data-bs-target="#by-i-30-3" id="by-i-30-3-tab" type="button" role="tab" aria-controls="by-i-30-3" aria-selected="false" class="nav-link">By I-30</button></li>
+</ul>
+<div class="tab-content">
+<div class="active  tab-pane" id="by-race-3" role="tabpanel" aria-labelledby="by-race-3-tab">
+
 <pre><code><span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 5 × 2</span></span></span>
 <span><span class="co">#&gt;   Race     `Avg. # Jurors`</span></span>
 <span><span class="co">#&gt;   <span style="color: #949494; font-style: italic;">&lt;fct&gt;</span>              <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span></span>
@@ -275,9 +393,8 @@
 <span><span class="co">#&gt; <span style="color: #BCBCBC;">4</span> Asian               1.38</span></span>
 <span><span class="co">#&gt; <span style="color: #BCBCBC;">5</span> Other               1.91</span></span></code></pre>
 </div>
-<div class="section level3">
-<h3 id="by-gender-3">By Gender<a class="anchor" aria-label="anchor" href="#by-gender-3"></a>
-</h3>
+<div class="tab-pane" id="by-gender-3" role="tabpanel" aria-labelledby="by-gender-3-tab">
+
 <pre><code><span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 3 × 2</span></span></span>
 <span><span class="co">#&gt;   Gender `Avg. # Jurors`</span></span>
 <span><span class="co">#&gt;   <span style="color: #949494; font-style: italic;">&lt;fct&gt;</span>            <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span></span>
@@ -285,9 +402,8 @@
 <span><span class="co">#&gt; <span style="color: #BCBCBC;">2</span> Male              7.02</span></span>
 <span><span class="co">#&gt; <span style="color: #BCBCBC;">3</span> Other             1.14</span></span></code></pre>
 </div>
-<div class="section level3">
-<h3 id="by-age-3">By Age<a class="anchor" aria-label="anchor" href="#by-age-3"></a>
-</h3>
+<div class="tab-pane" id="by-age-3" role="tabpanel" aria-labelledby="by-age-3-tab">
+
 <pre><code><span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 4 × 2</span></span></span>
 <span><span class="co">#&gt;   `Age Group` `Avg. # Jurors`</span></span>
 <span><span class="co">#&gt;   <span style="color: #949494; font-style: italic;">&lt;fct&gt;</span>                 <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span></span>
@@ -296,9 +412,8 @@
 <span><span class="co">#&gt; <span style="color: #BCBCBC;">3</span> 45 - 54                4.06</span></span>
 <span><span class="co">#&gt; <span style="color: #BCBCBC;">4</span> 55 +                   4.83</span></span></code></pre>
 </div>
-<div class="section level3">
-<h3 id="by-i-30-3">By I-30<a class="anchor" aria-label="anchor" href="#by-i-30-3"></a>
-</h3>
+<div class="tab-pane" id="by-i-30-3" role="tabpanel" aria-labelledby="by-i-30-3-tab">
+
 <pre><code><span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 4 × 2</span></span></span>
 <span><span class="co">#&gt;   `I-30` `Avg. # Jurors`</span></span>
 <span><span class="co">#&gt;   <span style="color: #949494; font-style: italic;">&lt;fct&gt;</span>            <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span></span>
@@ -308,6 +423,8 @@
 <span><span class="co">#&gt; <span style="color: #BCBCBC;">4</span> <span style="color: #BB0000;">NA</span>                1</span></span></code></pre>
 <p>The missing data point comes from a data entry error with the zip code for one juror.</p>
 <p>The specific reason for the highest occurring causes for each column.</p>
+</div>
+</div>
 </div>
 </div>
   </main><aside class="col-md-3"><nav id="toc"><h2>On this page</h2>
