@@ -42,7 +42,6 @@
 #'  \item{jur_race}{Venireperson's race.}
 #'  \item{jur_gend}{Venireperson's gender.}
 #'  \item{zip_code}{Venireperso's zip code.}
-#'  \item{four}{4 digits after zip code.}
 #'  \item{defendants_name}{Anonymized name for each defendant.}
 #'  \item{defendants_race}{Defendant's race.}
 #'  \item{defendants_gender}{Defendant's gender.}
@@ -51,7 +50,6 @@
 #'  \item{verdict}{The trial's verdict.}
 #'  \item{punishment_number_years}{The term of the punishment..}
 #'  \item{probation}{Defendant was put on probation.}
-#'  \item{notes}{Notes made by the Judge during jury selection.}
 #'  \item{age_group}{Venireperson's age binned into a group.}
 #'  \item{peremptory_strike}{Summary variable for State and Defense.}
 #'  \item{jur_caused}{Summary variable for dismissed for cause.}
@@ -113,7 +111,6 @@
 #'  \item{jur_race}{Venireperson's race.}
 #'  \item{jur_gend}{Venireperson's gender.}
 #'  \item{zip_code}{Venireperso's zip code.}
-#'  \item{four}{4 digits after zip code.}
 #'  \item{defendants_name}{Anonymized name for each defendant.}
 #'  \item{defendants_race}{Defendant's race.}
 #'  \item{defendants_gender}{Defendant's gender.}
@@ -122,7 +119,6 @@
 #'  \item{verdict}{The trial's verdict.}
 #'  \item{punishment_number_years}{The term of the punishment..}
 #'  \item{probation}{Defendant was put on probation.}
-#'  \item{notes}{Notes made by the Judge during jury selection.}
 #'  \item{age_group}{Venireperson's age binned into a group.}
 #'  \item{peremptory_strike}{Summary variable for State and Defense.}
 #'  \item{jur_caused}{Summary variable for dismissed for cause.}
